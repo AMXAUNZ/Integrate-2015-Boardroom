@@ -128,7 +128,7 @@
 <TransTCPIPEx>192.168.0.38|1319|1| ||</TransTCPIPEx>
 <TransSerialEx>COM1|38400|8|None|1|None||</TransSerialEx>
 <TransUSBEx>|||||</TransUSBEx>
-<TransVNMEx>192.168.0.1|1|&lt;Default&gt;</TransVNMEx>
+<TransVNMEx>10.0.0.1|1|&lt;Default&gt;</TransVNMEx>
 <VirtualNetLinxMasterFlag>false</VirtualNetLinxMasterFlag>
 <VNMSystemID>1</VNMSystemID>
 <VNMIPAddress>10.0.0.1</VNMIPAddress>
@@ -136,6 +136,18 @@
 <UserName></UserName>
 <Password></Password>
 <Comments></Comments>
+<File CompileType="Netlinx" Type="Include"><Identifier>system-constants</Identifier>
+<FilePathName>src\inc\system-constants.axi</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Include"><Identifier>system-tp</Identifier>
+<FilePathName>src\inc\system-tp.axi</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="MasterSrc"><Identifier>integrate2015-boardroom-main</Identifier>
+<FilePathName>src\integrate2015-boardroom-main.axs</FilePathName>
+<Comments></Comments>
+</File>
 </System>
 </Project>
 </Workspace>
