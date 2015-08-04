@@ -1,5 +1,7 @@
 PROGRAM_NAME='system-constants'
 
+define_constant
+
 RoomName			= 'AMX Boardroom'
 
 //dvx switcher inputs/outputs

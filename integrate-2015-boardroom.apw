@@ -148,6 +148,10 @@
 <FilePathName>src\integrate2015-boardroom-main.axs</FilePathName>
 <Comments></Comments>
 </File>
+<File CompileType="Netlinx" Type="Include"><Identifier>system-devices</Identifier>
+<FilePathName>system-devices.axi</FilePathName>
+<Comments></Comments>
+</File>
 </System>
 </Project>
 </Workspace>
