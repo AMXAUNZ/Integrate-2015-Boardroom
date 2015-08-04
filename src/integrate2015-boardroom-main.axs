@@ -31,3 +31,16 @@ Programmers IP: xxx.xxx.xxx.232
 
 //touchpanel definitions
 #include 'system-tp'
+
+
+
+
+
+
+
+//Roses are Red
+//Violets are Blue
+//I am writing this code
+//For you to view...
+//Take my code and go for a walk
+//Because its all here for you to fork!
