@@ -1,0 +1,18 @@
+[submodule "src/inc/lib/amx-modero-library"]
+	path = src/inc/lib/amx-modero-library
+	url = https://github.com/AMXAUNZ/amx-modero-library.git
+[submodule "src/inc/lib/common-library"]
+	path = src/inc/lib/common-library
+	url = https://github.com/AMXAUNZ/common-library.git
+[submodule "src/inc/lib/amx-dvx-library"]
+	path = src/inc/lib/amx-dvx-library
+	url = https://github.com/AMXAUNZ/amx-dvx-library.git
+[submodule "src/inc/lib/amx-dxlink-library"]
+	path = src/inc/lib/amx-dxlink-library
+	url = https://github.com/AMXAUNZ/amx-dxlink-library.git
+[submodule "src/inc/lib/amx-enzo-library"]
+	path = src/inc/lib/amx-enzo-library
+	url = https://github.com/AMXAUNZ/amx-enzo-library.git
+[submodule "src/inc/lib/amx-device-library"]
+	path = src/inc/lib/amx-device-library
+	url = https://github.com/AMXAUNZ/amx-device-library.git
