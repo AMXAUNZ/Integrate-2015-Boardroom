@@ -208,6 +208,10 @@
 <FilePathName>src\integrate2015-boardroom-main.axs</FilePathName>
 <Comments></Comments>
 </File>
+<File CompileType="Netlinx" Type="Include"><Identifier>system-constants</Identifier>
+<FilePathName>src\system-constants.axi</FilePathName>
+<Comments></Comments>
+</File>
 </System>
 </Project>
 </Workspace>
