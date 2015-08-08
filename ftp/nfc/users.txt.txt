@@ -1,0 +1,9 @@
+# NFC user association file
+#
+# This is a temporary solution as we don't have access to a 'real' directory
+# service to store this data. Each line is a user entity. Format is as below:
+#     <nfcUid>,<name>,<email address>
+# E.g: A1B2C3D4,Joe Blogs,joe.blogs@amxaustralia.com.au
+
+1A2B3C4D5E6F7G,Some User,some.user@companyxyz.com.au,some.user.jpg
+0424BD3A853280,Maintenance,maintenance@companyxyz.com.au,no-photo.png

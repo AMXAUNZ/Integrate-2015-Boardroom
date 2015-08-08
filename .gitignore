@@ -1,0 +1,22 @@
+# Compiled source #
+###################
+*.tkn
+*.src
+src/integrate2015-boardroom-main.tko
+
+# Documents #
+###################
+*.doc
+
+# Image Files #
+###################
+*.ai
+*.bmp
+*.jpg
+*.jpeg
+*.png
+
+# Code Files in lib/amx-rms-sdk#
+###################
+src/mod/rms-sdk/*
+src/inc/rms-sdk/*

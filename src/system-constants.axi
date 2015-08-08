@@ -19,6 +19,37 @@ define_constant
  */
 
 
+// Drag Items
+
+// Drop Items
+integer BTN_DROP_AREA_TP_TABLE_HIGHLIGHT_MONITOR_LEFT  = 61
+integer BTN_DROP_AREA_TP_TABLE_HIGHLIGHT_MONITOR_RIGHT = 62
+
+
+
+/*
+ * --------------------
+ * Keypad button channel/address/level codes
+ * --------------------
+ */
+
+// channel codes
+integer BTN_KP_OFF              = 1
+integer BTN_KP_LIGHTS           = 2
+integer BTN_KP_BLOCKOUTS        = 3
+integer BTN_KP_SHADES           = 4
+integer BTN_KP_AV_OFF           = 5
+integer BTN_KP_WHITEBOARD       = 6
+integer BTN_KP_CURSOR_UP        = 7
+integer BTN_KP_CURSOR_DN        = 8
+integer BTN_KP_CURSOR_LT        = 9
+integer BTN_KP_CURSOR_RT        = 10
+integer BTN_KP_ENTER            = 11
+integer BTN_KP_WHEEL_ROTATE_LT  = 12
+integer BTN_KP_WHEEL_ROTATE_RT  = 13
+// level codes
+integer nLVL_KP_JOG_WHEEL       = 1
+
 
 /*
  * --------------------
@@ -79,6 +110,31 @@ integer BTN_MAIN_SPLASH_SCREEN = 2
 integer BTN_DEBUG_REBUILD_EVENT_TABLE   = 1
 integer BTN_DEBUG_WAKE_ON_LAN_PC        = 2
 
+// draggable button address codes
+integer BTN_ADR_DRAGGABLE_HDMI   = 1
+integer BTN_ADR_DRAGGABLE_VGA    = 2
+integer BTN_ADR_DRAGGABLE_STREAM = 3
+integer BTN_ADR_DRAGGABLE_ENZO   = 4
+
+// drop area button address codes
+integer BTN_ADR_DROP_AREA_LCD     = 17
+integer BTN_ADR_DROP_AREA_ENCODER = 18
+integer BTN_ADR_DROP_AREA_PREVIEW = 19
+
+// Lighting Control
+integer BTN_LIGHTING_PRESET_ALL_OFF         = 1
+integer BTN_LIGHTING_PRESET_ALL_ON          = 2
+integer BTN_LIGHTING_PRESET_ALL_DIM         = 3
+integer BTN_LIGHTING_PRESET_VC_MODE         = 4
+integer BTN_LIGHTING_AREA_WHITEBOARD_ON     = 5
+integer BTN_LIGHTING_AREA_WHITEBOARD_OFF    = 6
+integer BTN_LIGHTING_AREA_FRONT_UP          = 7
+integer BTN_LIGHTING_AREA_FRONT_DN          = 8
+integer BTN_LIGHTING_AREA_SIDE_AND_BACK_UP  = 9
+integer BTN_LIGHTING_AREA_SIDE_AND_BACK_DN  = 10
+integer BTN_LIGHTING_AREA_TABLE_UP          = 11
+integer BTN_LIGHTING_AREA_TABLE_DN          = 12
+
 // Enzo Control
 integer BTN_ENZO_HOME = 1
 integer BTN_ENZO_ENTER = 2	// aka "Select"
@@ -102,6 +158,156 @@ integer BTN_ENZO_PAGE_UP = 30
 integer BTN_ENZO_PAGE_DOWN = 31
 integer BTN_ENZO_PREVIOUS = 32
 integer BTN_ENZO_NEXT = 33
+
+// Apple TV Control
+integer BTN_APPLE_TV_PLAY_PAUSE = 1
+integer BTN_APPLE_TV_MENU       = 2
+integer BTN_APPLE_TV_SELECT     = 3
+integer BTN_APPLE_TV_UP         = 4
+integer BTN_APPLE_TV_DOWN       = 5
+integer BTN_APPLE_TV_LEFT       = 6
+integer BTN_APPLE_TV_RIGHT      = 7
+
+// Video Control
+INTEGER BTN_ADR_VIDEO_PREVIEW_VIDEO = 200
+INTEGER BTN_ADR_VIDEO_MONITOR_LEFT_PREVIEW_SNAPSHOT = 201
+INTEGER BTN_ADR_VIDEO_MONITOR_RIGHT_PREVIEW_SNAPSHOT = 202
+INTEGER BTN_ADR_VIDEO_MONITOR_LEFT_PREVIEW_LABEL = 203//201	// using same button as snapshot
+INTEGER BTN_ADR_VIDEO_MONITOR_RIGHT_PREVIEW_LABEL = 204//202	// using same button as snapshot
+
+
+integer BTN_VIDEO_MONITOR_LEFT_OFF          = 1
+integer BTN_VIDEO_MONITOR_LEFT_ON           = 2
+integer BTN_VIDEO_MONITOR_RIGHT_OFF         = 3
+integer BTN_VIDEO_MONITOR_RIGHT_ON          = 4
+
+
+integer BTN_VIDEO_QUERY_LYNC_CALL_YES   = 31
+integer BTN_VIDEO_QUERY_LYNC_CALL_NO    = 32
+integer BTN_VIDEO_LYNC_MONITOR_LEFT     = 33
+integer BTN_VIDEO_LYNC_MONITOR_RIGHT    = 34
+// Address Codes
+integer BTN_ADR_VIDEO_LOADING_PREVIEW           = 30
+integer BTN_ADR_VIDEO_PREVIEW_WINDOW            = 31
+integer BTN_VIDEO_PREVIEW_LOADING_BAR           = 32
+integer BTN_ADR_VIDEO_PREVIEW_LOADING_BAR       = 32
+
+integer BTN_USER_ACKNOWLEDGE_SEND_INPUT_NO_SIGNAL_TO_MONITOR_NO = 35
+integer BTN_USER_ACKNOWLEDGE_SEND_INPUT_NO_SIGNAL_TO_MONITOR_YES = 36
+
+
+// Audio Control
+integer BTN_AUDIO_VOLUME_UP             = 1
+integer BTN_AUDIO_VOLUME_DN             = 2
+integer BTN_AUDIO_VOLUME_MUTE           = 3
+integer BTN_AUDIO_INPUT_01              = 10
+integer BTN_AUDIO_INPUT_02              = 11
+integer BTN_AUDIO_INPUT_03              = 12
+integer BTN_AUDIO_INPUT_04              = 13
+integer BTN_AUDIO_INPUT_05              = 14
+integer BTN_AUDIO_INPUT_06              = 15
+integer BTN_AUDIO_INPUT_07              = 16
+integer BTN_AUDIO_INPUT_08              = 17
+integer BTN_AUDIO_INPUT_09              = 18
+integer BTN_AUDIO_INPUT_10              = 19
+integer BTN_AUDIO_FOLLOW_MONITOR_LEFT   = 20
+integer BTN_AUDIO_FOLLOW_MONITOR_RIGHT  = 21
+// Levels
+integer BTN_LVL_VOLUME_CONTROL          = 31    // bargraph which user controls (invisible to user - overlayed over the display bargraph)
+integer BTN_LVL_VOLUME_DISPLAY          = 32    // bargraph which displays the DVX's current volume
+// Address codes
+integer BTN_ADR_VOLUME_BARGRAPH_CONTROL = 31
+integer BTN_ADR_VOLUME_BARGRAPH_DISPLAY = 32
+
+
+// Power/Energy Control & Monitoring
+integer BTN_POWER_TOGGLE_MONITOR_LEFT   = 1
+integer BTN_POWER_TOGGLE_MONITOR_RIGHT  = 2
+integer BTN_POWER_TOGGLE_PDXL2          = 3
+integer BTN_POWER_TOGGLE_MULTI_PREVIEW  = 4
+integer BTN_POWER_TOGGLE_PC             = 5
+integer BTN_POWER_TOGGLE_DVX            = 6
+integer BTN_POWER_TOGGLE_FAN_1          = 7
+integer BTN_POWER_TOGGLE_FAN_2          = 8
+integer BTNS_POWER_CONTROL[]            = {1,2,3,4,5,6,7,8}
+// address codes
+integer BTNS_ADR_POWER_CURRENT_DRAW[]   = {51,52,53,54,55,56,57,58}
+integer BTNS_ADR_POWER_CONSUMPTION[]    = {61,62,63,64,65,66,67,68}
+integer BTNS_ADR_POWER_ENERGY_USAGE[]   = {71,72,73,74,75,76,77,78}
+integer BTN_ADR_POWER_INPUT_VOLTAGE[]   = 80
+integer BTN_ADR_POWER_AXLINK_VOLTAGE[]  = 81
+integer BTN_ADR_POWER_TEMPERATURE[]     = 82
+integer BTN_ADR_POWER_OUTLET_LABEL_1    = 11
+integer BTN_ADR_POWER_OUTLET_LABEL_2    = 12
+integer BTN_ADR_POWER_OUTLET_LABEL_3    = 13
+integer BTN_ADR_POWER_OUTLET_LABEL_4    = 14
+integer BTN_ADR_POWER_OUTLET_LABEL_5    = 15
+integer BTN_ADR_POWER_OUTLET_LABEL_6    = 16
+integer BTN_ADR_POWER_OUTLET_LABEL_7    = 17
+integer BTN_ADR_POWER_OUTLET_LABEL_8    = 18
+integer BTNS_ADR_POWER_OUTLET_LABELS[]  = {11,12,13,14,15,16,17,18}
+integer BTN_ADR_POWER_RELAY_STATUS_1    = 21
+integer BTN_ADR_POWER_RELAY_STATUS_2    = 22
+integer BTN_ADR_POWER_RELAY_STATUS_3    = 23
+integer BTN_ADR_POWER_RELAY_STATUS_4    = 24
+integer BTN_ADR_POWER_RELAY_STATUS_5    = 25
+integer BTN_ADR_POWER_RELAY_STATUS_6    = 26
+integer BTN_ADR_POWER_RELAY_STATUS_7    = 27
+integer BTN_ADR_POWER_RELAY_STATUS_8    = 28
+integer BTNS_ADR_POWER_RELAY_STATUS[]   = {21,22,23,24,25,26,27,28}
+integer BTN_ADR_POWER_SENSE_STATUS_1    = 31
+integer BTN_ADR_POWER_SENSE_STATUS_2    = 32
+integer BTN_ADR_POWER_SENSE_STATUS_3    = 33
+integer BTN_ADR_POWER_SENSE_STATUS_4    = 34
+integer BTN_ADR_POWER_SENSE_STATUS_5    = 35
+integer BTN_ADR_POWER_SENSE_STATUS_6    = 36
+integer BTN_ADR_POWER_SENSE_STATUS_7    = 37
+integer BTN_ADR_POWER_SENSE_STATUS_8    = 38
+integer BTNS_ADR_POWER_SENSE_STATUS[]   = {31,32,33,34,35,36,37,38}
+integer BTN_ADR_POWER_SENSE_TRIGGER_1   = 41
+integer BTN_ADR_POWER_SENSE_TRIGGER_2   = 42
+integer BTN_ADR_POWER_SENSE_TRIGGER_3   = 43
+integer BTN_ADR_POWER_SENSE_TRIGGER_4   = 44
+integer BTN_ADR_POWER_SENSE_TRIGGER_5   = 45
+integer BTN_ADR_POWER_SENSE_TRIGGER_6   = 46
+integer BTN_ADR_POWER_SENSE_TRIGGER_7   = 47
+integer BTN_ADR_POWER_SENSE_TRIGGER_8   = 48
+integer BTNS_ADR_POWER_SENSE_TRIGGER[]  = {41,42,43,44,45,46,47,48}
+//integer BTNS_ADR_POWER_CURRENT_DRAW
+integer BTN_ADR_POWER_OUTLET_LABEL_MONITOR_LEFT = BTN_ADR_POWER_OUTLET_LABEL_1
+
+integer BTN_POWER_TEMPERATURE_SCALE_TOGGLE      = 100
+integer BTN_POWER_TEMPERATURE_SCALE_CELCIUS     = 101
+integer BTN_POWER_TEMPERATURE_SCALE_FAHRENHEIT  = 102
+
+
+// Blinds & Shades Control
+integer BTN_BLIND_1_UP      = 1
+integer BTN_BLIND_1_DOWN    = 2
+integer BTN_BLIND_1_STOP    = 3
+integer BTN_BLIND_2_UP      = 4
+integer BTN_BLIND_2_DOWN    = 5
+integer BTN_BLIND_2_STOP    = 6
+integer BTN_SHADE_1_UP      = 7
+integer BTN_SHADE_1_DOWN    = 8
+integer BTN_SHADE_1_STOP    = 9
+integer BTN_SHADE_2_UP      = 10
+integer BTN_SHADE_2_DOWN    = 11
+integer BTN_SHADE_2_STOP    = 12
+
+
+// Camera Control
+integer BTN_CAMERA_ZOOM_IN      = 1
+integer BTN_CAMERA_ZOOM_OUT     = 2
+integer BTN_CAMERA_TILT_UP      = 3
+integer BTN_CAMERA_TILT_DOWN    = 4
+integer BTN_CAMERA_PAN_LEFT     = 5
+integer BTN_CAMERA_PAN_RIGHT    = 6
+integer BTN_CAMERA_FOCUS_NEAR   = 7
+integer BTN_CAMERA_FOCUS_FAR    = 8
+integer BTN_CAMERA_PRESET_1     = 11
+integer BTN_CAMERA_PRESET_2     = 12
+integer BTN_CAMERA_PRESET_3     = 13
 
 
 // DXLink Control

@@ -121,11 +121,11 @@
 <SalesOrder></SalesOrder>
 <PurchaseOrder></PurchaseOrder>
 <Comments></Comments>
-<System IsActive="true" Platform="Netlinx" Transport="Serial" TransportEx="Serial"><Identifier>Boardroom DVX</Identifier>
+<System IsActive="true" Platform="Netlinx" Transport="Serial" TransportEx="TCPIP"><Identifier>Boardroom DVX</Identifier>
 <SysID>0</SysID>
 <TransTCPIP>0.0.0.0</TransTCPIP>
 <TransSerial>COM1,115200,8,None,1,None</TransSerial>
-<TransTCPIPEx>192.168.0.38|1319|1| ||</TransTCPIPEx>
+<TransTCPIPEx>192.168.1.102|1319|1|Jeremy NX-1200||</TransTCPIPEx>
 <TransSerialEx>COM1|38400|8|None|1|None||</TransSerialEx>
 <TransUSBEx>|||||</TransUSBEx>
 <TransVNMEx>10.0.0.1|1|&lt;Default&gt;</TransVNMEx>
@@ -136,6 +136,14 @@
 <UserName></UserName>
 <Password></Password>
 <Comments></Comments>
+<File CompileType="Netlinx" Type="Include"><Identifier>agent-usb-ptz-web-cam</Identifier>
+<FilePathName>src\inc\agent-usb-ptz-web-cam\agent-usb-ptz-web-cam.axi</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Include"><Identifier>debug</Identifier>
+<FilePathName>src\inc\debug.axi</FilePathName>
+<Comments></Comments>
+</File>
 <File CompileType="Netlinx" Type="Include"><Identifier>amx-controlports-api</Identifier>
 <FilePathName>src\inc\lib\amx-device-library\amx-controlports-api.axi</FilePathName>
 <Comments></Comments>
@@ -204,8 +212,184 @@
 <FilePathName>src\inc\lib\common-library\common.axi</FilePathName>
 <Comments></Comments>
 </File>
+<File CompileType="Netlinx" Type="Include"><Identifier>nec-monitor</Identifier>
+<FilePathName>src\inc\nec-monitor\nec-monitor.axi</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="DUET"><Identifier>NEC_LCD5710_Comm_dr1_0_0</Identifier>
+<FilePathName>src\inc\nec-monitor\NEC_LCD5710_Comm_dr1_0_0.jar</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Include"><Identifier>rms-main</Identifier>
+<FilePathName>src\inc\rms-main.axi</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Include"><Identifier>RmsApi</Identifier>
+<FilePathName>src\inc\rms-sdk\RmsApi.axi</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Include"><Identifier>RmsEventListener</Identifier>
+<FilePathName>src\inc\rms-sdk\RmsEventListener.axi</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Include"><Identifier>RmsGuiApi</Identifier>
+<FilePathName>src\inc\rms-sdk\RmsGuiApi.axi</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Include"><Identifier>RmsMathUtil</Identifier>
+<FilePathName>src\inc\rms-sdk\RmsMathUtil.axi</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Include"><Identifier>RmsMonitorCommon</Identifier>
+<FilePathName>src\inc\rms-sdk\RmsMonitorCommon.axi</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Include"><Identifier>RmsNlSnapiComponents</Identifier>
+<FilePathName>src\inc\rms-sdk\RmsNlSnapiComponents.axi</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Include"><Identifier>RmsNlTimer</Identifier>
+<FilePathName>src\inc\rms-sdk\RmsNlTimer.axi</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Include"><Identifier>RmsSchedulingApi</Identifier>
+<FilePathName>src\inc\rms-sdk\RmsSchedulingApi.axi</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Include"><Identifier>RmsSchedulingEventListener</Identifier>
+<FilePathName>src\inc\rms-sdk\RmsSchedulingEventListener.axi</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Include"><Identifier>RmsSourceUsage</Identifier>
+<FilePathName>src\inc\rms-sdk\RmsSourceUsage.axi</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Include"><Identifier>RmsSystemEventHandler</Identifier>
+<FilePathName>src\inc\rms-sdk\RmsSystemEventHandler.axi</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Include"><Identifier>snapi-display-control</Identifier>
+<FilePathName>src\inc\snapi-display-control.axi</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Include"><Identifier>wake-on-lan</Identifier>
+<FilePathName>src\inc\wake-on-lan\wake-on-lan.axi</FilePathName>
+<Comments></Comments>
+</File>
 <File CompileType="Netlinx" Type="MasterSrc"><Identifier>integrate2015-boardroom-main</Identifier>
 <FilePathName>src\integrate2015-boardroom-main.axs</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Include"><Identifier>cbus-lighting</Identifier>
+<FilePathName>src\mod\cbus-lighting\cbus-lighting.axi</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="DUET"><Identifier>Clipsal_CBus_Comm_dr1_0_0</Identifier>
+<FilePathName>src\mod\cbus-lighting\Clipsal_CBus_Comm_dr1_0_0.jar</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Module"><Identifier>drag-and-drop</Identifier>
+<FilePathName>src\mod\drag-and-drop\drag-and-drop.axs</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Include"><Identifier>touch-tracker</Identifier>
+<FilePathName>src\mod\drag-and-drop\touch-tracker.axi</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Module"><Identifier>multi-preview-dvx</Identifier>
+<FilePathName>src\mod\multi-preview-dvx\multi-preview-dvx.axs</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="DUET"><Identifier>commons-codec-1.4-AMX-01</Identifier>
+<FilePathName>src\mod\rms-sdk\commons-codec-1.4-AMX-01.jar</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="DUET"><Identifier>commons-httpclient-3.1-AMX-01</Identifier>
+<FilePathName>src\mod\rms-sdk\commons-httpclient-3.1-AMX-01.jar</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="DUET"><Identifier>commons-lang-2.5-AMX-01</Identifier>
+<FilePathName>src\mod\rms-sdk\commons-lang-2.5-AMX-01.jar</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="DUET"><Identifier>commons-logging-1.1.1-AMX-01</Identifier>
+<FilePathName>src\mod\rms-sdk\commons-logging-1.1.1-AMX-01.jar</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="DUET"><Identifier>devicedescriptorengine</Identifier>
+<FilePathName>src\mod\rms-sdk\devicedescriptorengine.jar</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="DUET"><Identifier>rms-client-netlinx-web</Identifier>
+<FilePathName>src\mod\rms-sdk\rms-client-netlinx-web.jar</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Other"><Identifier>rms-sdk-manifest</Identifier>
+<FilePathName>src\mod\rms-sdk\rms-sdk-manifest.xml</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="DUET"><Identifier>rmsclient-osgi</Identifier>
+<FilePathName>src\mod\rms-sdk\rmsclient-osgi.jar</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="DUET"><Identifier>rmsclient</Identifier>
+<FilePathName>src\mod\rms-sdk\rmsclient.jar</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="DUET"><Identifier>RmsClientGui_dr4_0_0</Identifier>
+<FilePathName>src\mod\rms-sdk\RmsClientGui_dr4_0_0.jar</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Module"><Identifier>RmsControlSystemMonitor</Identifier>
+<FilePathName>src\mod\rms-sdk\RmsControlSystemMonitor.axs</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="DUET"><Identifier>rmsddeadapter</Identifier>
+<FilePathName>src\mod\rms-sdk\rmsddeadapter.jar</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Module"><Identifier>RmsDuetMonitorMonitor</Identifier>
+<FilePathName>src\mod\rms-sdk\RmsDuetMonitorMonitor.axs</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Module"><Identifier>RmsDvxSwitcherMonitor</Identifier>
+<FilePathName>src\mod\rms-sdk\RmsDvxSwitcherMonitor.axs</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Module"><Identifier>RmsGenericNetLinxDeviceMonitor</Identifier>
+<FilePathName>src\mod\rms-sdk\RmsGenericNetLinxDeviceMonitor.axs</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="DUET"><Identifier>RmsNetLinxAdapter_dr4_0_0</Identifier>
+<FilePathName>src\mod\rms-sdk\RmsNetLinxAdapter_dr4_0_0.jar</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="DUET"><Identifier>rmsnlplatform</Identifier>
+<FilePathName>src\mod\rms-sdk\rmsnlplatform.jar</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Module"><Identifier>RmsPowerDistributionUnitMonitor</Identifier>
+<FilePathName>src\mod\rms-sdk\RmsPowerDistributionUnitMonitor.axs</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Module"><Identifier>RmsSourceUsageMonitor</Identifier>
+<FilePathName>src\mod\rms-sdk\RmsSourceUsageMonitor.axs</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Module"><Identifier>RmsSystemModeMonitor</Identifier>
+<FilePathName>src\mod\rms-sdk\RmsSystemModeMonitor.axs</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Module"><Identifier>RmsSystemPowerMonitor</Identifier>
+<FilePathName>src\mod\rms-sdk\RmsSystemPowerMonitor.axs</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Module"><Identifier>RmsTouchPanelMonitor</Identifier>
+<FilePathName>src\mod\rms-sdk\RmsTouchPanelMonitor.axs</FilePathName>
+<Comments></Comments>
+</File>
+<File CompileType="Netlinx" Type="Module"><Identifier>RmsVirtualDeviceMonitor</Identifier>
+<FilePathName>src\mod\rms-sdk\RmsVirtualDeviceMonitor.axs</FilePathName>
 <Comments></Comments>
 </File>
 <File CompileType="Netlinx" Type="Include"><Identifier>system-constants</Identifier>
