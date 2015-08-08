@@ -12,7 +12,7 @@ PROGRAM_NAME='system-library-listener'
 
 
 #include 'amx-dvx-listener'
-#include 'amx-pdu-listener'
+//#include 'amx-pdu-listener'
 #include 'amx-dxlink-listener'
 #include 'amx-modero-listener'
 #include 'amx-controlports-listener'

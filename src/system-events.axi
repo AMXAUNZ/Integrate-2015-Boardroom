@@ -1,5 +1,7 @@
 PROGRAM_NAME='system-events'
 
+PROGRAM_NAME='system-events'
+
 #if_not_defined __SYSTEM_EVENTS__
 #define __SYSTEM_EVENTS__
 
@@ -182,6 +184,171 @@ data_event[dvTpTableMain]
 	}
 }
 
+/*data_event[dvPduMain1]
+{
+	online:
+	{
+		pduRequestVersion (dvPduMain1)
+		pduRequestSerialNumber (dvPduMain1)
+		pduRequestPersistStateAllOutlets (dvPduMain1)
+		pduRequestPowerTriggerSenseValue (dvPduMain1, PDU_OUTLET_1)
+		pduRequestPowerTriggerSenseValue (dvPduMain1, PDU_OUTLET_2)
+		pduRequestPowerTriggerSenseValue (dvPduMain1, PDU_OUTLET_3)
+		pduRequestPowerTriggerSenseValue (dvPduMain1, PDU_OUTLET_4)
+		pduRequestPowerTriggerSenseValue (dvPduMain1, PDU_OUTLET_5)
+		pduRequestPowerTriggerSenseValue (dvPduMain1, PDU_OUTLET_6)
+		pduRequestPowerTriggerSenseValue (dvPduMain1, PDU_OUTLET_7)
+		pduRequestPowerTriggerSenseValue (dvPduMain1, PDU_OUTLET_8)
+		WAIT 50   // putting a wait here because the PDU seems to set the temp scale back to fahrenheit if it is set to celcius immediately after coming online
+		pduSetTempScaleCelcius (dvPduMain1)
+	}
+}*/
+
+data_event [vdvDragAndDropTpTable]
+{
+    online:
+    {
+		// Define drag/drop items - they will automatically be enabled by the module
+		addDragItemsAll (vdvDragAndDropTpTable)
+		addDropAreasAll (vdvDragAndDropTpTable)
+	}
+    string:
+    {
+		stack_var char header[50]
+		
+		header = remove_string (data.text,DELIM_HEADER,1)
+		
+		switch (header)
+		{
+			case 'DRAG_ITEM_SELECTED-':
+			{
+				enableDropItemsAll (vdvDragAndDropTpTable)
+				
+				animateTpVideoSourceSelectionOpen()
+			}
+			
+			case 'DRAG_ITEM_DESELECTED-':
+			{
+				stack_var integer idDragItem
+				
+				idDragItem = atoi(data.text)
+				
+				// reset the draggable popup position by hiding it and then showing it again
+				resetDraggablePopup (vdvDragAndDropTpTable, idDragItem)
+				
+				disableDropAreasAll (vdvDragAndDropTpTable)
+			}
+			
+			case 'DRAG_ITEM_ENTER_DROP_AREA-':
+			{
+				stack_var integer idDragItem
+				stack_var integer idDropArea
+				
+				idDragItem = atoi(remove_string(data.text,DELIM_PARAM,1))
+				idDropArea = atoi(data.text)
+				
+				select
+				{
+					active (idDropArea == dvDvxVidOutMonitorLeft.port):
+					{
+						channelOn (dvTpTableVideo, BTN_DROP_AREA_TP_TABLE_HIGHLIGHT_MONITOR_LEFT)
+					}
+					
+					active (idDropArea == dvDvxVidOutMonitorRight.port):
+					{
+						channelOn (dvTpTableVideo, BTN_DROP_AREA_TP_TABLE_HIGHLIGHT_MONITOR_RIGHT)
+					}
+				}
+			}
+			
+			case 'DRAG_ITEM_EXIT_DROP_AREA-':
+			{
+				stack_var integer idDragItem
+				stack_var integer idDropArea
+				
+				idDragItem = atoi(remove_string(data.text,DELIM_PARAM,1))
+				idDropArea = atoi(data.text)
+				
+				select
+				{
+					active (idDropArea == dvDvxVidOutMonitorLeft.port):
+					{
+						channelOff (dvTpTableVideo, BTN_DROP_AREA_TP_TABLE_HIGHLIGHT_MONITOR_LEFT)
+					}
+					
+					active (idDropArea == dvDvxVidOutMonitorRight.port):
+					{
+						channelOff (dvTpTableVideo, BTN_DROP_AREA_TP_TABLE_HIGHLIGHT_MONITOR_RIGHT)
+					}
+				}
+			}
+			
+			case 'DRAG_ITEM_DROPPED_ON_DROP_AREA-':
+			{
+				local_var integer idDragItem
+				local_var integer idDropArea
+				stack_var integer btnDropArea
+				
+				idDragItem = atoi(remove_string(data.text,DELIM_PARAM,1))
+				idDropArea = atoi(data.text)
+				
+				disableDropAreasAll (vdvDragAndDropTpTable)
+				
+				resetDraggablePopup (vdvDragAndDropTpTable, idDragItem)
+				
+				select
+				{
+					active (idDropArea == dvDvxVidOutMonitorLeft.port):
+					{
+						
+						if (dvx.videoInputs[idDragItem].status != DVX_SIGNAL_STATUS_VALID_SIGNAL)
+						{
+							moderoEnablePopup (dvTpTableVideo, POPUP_NAME_NO_SIGNAL_ARE_YOU_SURE)
+							wait_until (userAcknowledgedSelectingInputWithNoSignal) 'WAITING_FOR_USER_TO_ACKNOWLEDGE_SENDING_NO_SIGNAL_INPUT_TO_MONITOR'
+							{
+								userAcknowledgedSelectingInputWithNoSignal = false
+								sendSelectedInputToLeftMonitor (idDragItem, idDropArea)
+							}
+						}
+						else
+						{
+							sendSelectedInputToLeftMonitor (idDragItem, idDropArea)
+						}
+					}
+					
+					active (idDropArea == dvDvxVidOutMonitorRight.port):
+					{
+					
+						if (dvx.videoInputs[idDragItem].status != DVX_SIGNAL_STATUS_VALID_SIGNAL)
+						{
+							moderoEnablePopup (dvTpTableVideo, POPUP_NAME_NO_SIGNAL_ARE_YOU_SURE)
+							wait_until (userAcknowledgedSelectingInputWithNoSignal) 'WAITING_FOR_USER_TO_ACKNOWLEDGE_SENDING_NO_SIGNAL_INPUT_TO_MONITOR'
+							{
+								userAcknowledgedSelectingInputWithNoSignal = false
+								sendSelectedInputToRightMonitor (idDragItem, idDropArea)
+							}
+						}
+						else
+						{
+							sendSelectedInputToRightMonitor (idDragItem, idDropArea)
+						}
+					}
+					
+					active (idDropArea == dvDvxVidOutMultiPreview.port):
+					{
+						showSourceOnDisplay (idDragItem, idDropArea)
+						
+						sendCommand (vdvMultiPreview, "'VIDEO_PREVIEW-',itoa(idDragItem)")
+					}
+				}
+			}
+			
+			case 'DRAG_ITEM_NOT_LEFT_DRAG_AREA_WITHIN_TIME-': {}
+		}
+    }
+}
+
+
 data_event [dvTpTableVideo]
 {
 	online:
@@ -250,7 +417,7 @@ data_event[dvTpTableMain]
 		dxlinkRequestTxVideoInputSignalStatusDigital (dvTxTable4VidInDigital)
 
 		// PDU
-		pduRequestVersion (dvPduMain1)
+		/*pduRequestVersion (dvPduMain1)
 		pduRequestSerialNumber (dvPduMain1)
 		pduRequestPersistStateAllOutlets (dvPduMain1)
 		pduRequestPowerTriggerSenseValue (dvPduMain1, PDU_OUTLET_1)
@@ -260,20 +427,20 @@ data_event[dvTpTableMain]
 		pduRequestPowerTriggerSenseValue (dvPduMain1, PDU_OUTLET_5)
 		pduRequestPowerTriggerSenseValue (dvPduMain1, PDU_OUTLET_6)
 		pduRequestPowerTriggerSenseValue (dvPduMain1, PDU_OUTLET_7)
-		pduRequestPowerTriggerSenseValue (dvPduMain1, PDU_OUTLET_8)
+		pduRequestPowerTriggerSenseValue (dvPduMain1, PDU_OUTLET_8)*/
 		
 		// Panel
 		moderoEnablePageTracking(dvTpTableMain)
 
 		// Update button text for PDU button labels
-		{
+		/*{
 			stack_var integer i
 
 			for (i = 1; i <= PDU_MAX_OUTLETS; i++)
 			{
 				moderoSetButtonText (dvTpTablePower, BTNS_ADR_POWER_OUTLET_LABELS[i], MODERO_BUTTON_STATE_ALL, LABELS_PDU_OUTLETS[i])
 			}
-		}
+		}*/
 	}
 }
 
@@ -420,7 +587,7 @@ button_event[dvTpTableLighting,0]
 }
 
 
-button_event[dvTpTablePower,0]
+/*button_event[dvTpTablePower,0]
 {
 	push:
 	{
@@ -449,7 +616,7 @@ button_event[dvTpTablePower,0]
 			case BTN_POWER_TEMPERATURE_SCALE_FAHRENHEIT: pduSetTempScaleFahrenheit (dvPduMain1)
 		}
 	}
-}
+}*/
 
 #warn 'finish programming Enzo control button event'
 button_event[dvTpTableEnzo,0]
@@ -686,6 +853,34 @@ button_event [dvTpTableDebug, 3]	// select right monitor
     }
 }
 
+data_event[dvIrAppleTv]
+{
+	online:
+	{	
+		// Apple TV IR codes are fast and repeating.
+		// Need to limit the amount of time we emit the IR for in order to avoid double-pulses
+		amxIrSetOnTime (dvIrAppleTv, 2)
+		amxIrSetOffTime (dvIrAppleTv, 5)
+	}
+}
+
+button_event [dvTpTableAppleTv,0]
+{
+	push:
+	{
+		switch (button.input.channel)
+		{
+			case BTN_APPLE_TV_PLAY_PAUSE: amxIrStackPulse (dvIrAppleTv,IR_APPLE_TV_PLAY_PAUSE)
+			case BTN_APPLE_TV_MENU:       amxIrStackPulse (dvIrAppleTv,IR_APPLE_TV_MENU)
+			case BTN_APPLE_TV_SELECT:     amxIrStackPulse (dvIrAppleTv,IR_APPLE_TV_SELECT)
+			case BTN_APPLE_TV_UP:         amxIrStackPulse (dvIrAppleTv,IR_APPLE_TV_UP)
+			case BTN_APPLE_TV_DOWN:       amxIrStackPulse (dvIrAppleTv,IR_APPLE_TV_DOWN)
+			case BTN_APPLE_TV_LEFT:       amxIrStackPulse (dvIrAppleTv,IR_APPLE_TV_LEFT)
+			case BTN_APPLE_TV_RIGHT:      amxIrStackPulse (dvIrAppleTv,IR_APPLE_TV_RIGHT)
+		}
+	}
+}
+
 
 /*
  * --------------------
@@ -889,5 +1084,35 @@ button_event[dvTpSchedulingRmsCustom,BTN_SCHEDULING_MAKE_RESERVATION]
 	}
 }
 
+custom_event[dvTpTableVideo,BTN_ADR_DROP_AREA_LCD,MODERO_CUSTOM_EVENT_ID_DROP]
+custom_event[dvTpTableVideo,BTN_ADR_DROP_AREA_ENCODER,MODERO_CUSTOM_EVENT_ID_DROP]
+custom_event[dvTpTableVideo,BTN_ADR_DROP_AREA_PREVIEW,MODERO_CUSTOM_EVENT_ID_DROP]
+{
+  // what do I want to do?
+  // #1 - work out which draggable I dropped onto this drop area for the lcd
+  // #2 - work out which DVX input that draggable relates to
+  // #3 - work out which output on the DVX the LCD is connected to
+  // #4 - do a switch on the DVX from the selected input to the lcd output
+  
+  // CUSTOM.VALUE1 contains the address code of the draggable button
+  // CUSTOM.ID contains the address code of the drop area button
+  
+  if (custom.id == BTN_ADR_DROP_AREA_LCD)	// we need to switch to the LCD...but which input?
+  {
+	switch (custom.value1)
+	{
+	  case BTN_ADR_DRAGGABLE_HDMI:	// HDMI laptop input
+	  {
+		// switch the DVX input for the HDMI laptop to the output for the LCD
+		dvxSwitchAll(dvDvxMain, dvDvxVidInLaptopHdmi.port, dvDvxVidOutLcd.port)
+	  }
+	}
+  }
+  else if(custom.id == BTN_ADR_DROP_AREA_ENCODER)
+  {
+	// blah blah blah
+  }
+  
+}
 
 #end_if

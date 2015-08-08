@@ -196,13 +196,16 @@ dvDvxVidIn8     = DEV_ID_DVX_SWITCHER:DVX_PORT_VID_IN_8:SYS_MASTER
 dvDvxVidIn9     = DEV_ID_DVX_SWITCHER:DVX_PORT_VID_IN_9:SYS_MASTER
 dvDvxVidIn10    = DEV_ID_DVX_SWITCHER:DVX_PORT_VID_IN_10:SYS_MASTER
 // Names ports
-dvDvxVidInSignage  = dvDvxVidIn7
-dvDvxVidInEnzo     = dvDvxVidIn5
-dvDvxVidInAppleTv  = dvDvxVidIn6
-dvDvxVidInTx1      = dvDvxVidIn4
-dvDvxVidInTx2      = dvDvxVidIn8
-dvDvxVidInTx3      = dvDvxVidIn9
-dvDvxVidInTx4      = dvDvxVidIn10
+dvDvxVidInSignage    = dvDvxVidIn7
+dvDvxVidInEnzo       = dvDvxVidIn5
+dvDvxVidInAppleTv    = dvDvxVidIn6
+dvDvxVidInTx1        = dvDvxVidIn4
+dvDvxVidInTx2        = dvDvxVidIn8
+dvDvxVidInTx3        = dvDvxVidIn9
+dvDvxVidInTx4        = dvDvxVidIn10
+dvDvxVidInLaptopHdmi = dvDvxVidIn9
+dvDvxVidInLaptopVGA  = dvDvxVidIn10
+dvDvxVidInEncoder    = dvDvxVidIn8
 
 // DVX Video Outputs
 dvDvxVidOut1    = DEV_ID_DVX_SWITCHER:DVX_PORT_VID_OUT_1:SYS_MASTER
@@ -213,6 +216,8 @@ dvDvxVidOut4    = DEV_ID_DVX_SWITCHER:DVX_PORT_VID_OUT_4:SYS_MASTER
 dvDvxVidOutMultiPreview = dvDvxVidOut4
 dvDvxVidOutMonitorLeft  = dvDvxVidOut1
 dvDvxVidOutMonitorRight = dvDvxVidOut3
+dvDvxVidOutLcd          = dvDvxVidOut1
+dvDvxVidOutEncoder      = dvDvxVidOut2
 
 // DVX Audio Inputs
 dvDvxAudIn1     = DEV_ID_DVX_SWITCHER:DVX_PORT_AUD_IN_1:SYS_MASTER

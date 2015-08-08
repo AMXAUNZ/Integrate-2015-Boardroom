@@ -6,7 +6,7 @@ PROGRAM_NAME='system-library-api'
 // include files
 #include 'amx-controlports-api'
 #include 'amx-dvx-api'
-#include 'amx-pdu-api'
+//#include 'amx-pdu-api'
 #include 'amx-dxlink-api'
 #include 'amx-modero-api'
 #include 'amx-enzo-api'
