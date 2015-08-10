@@ -1084,9 +1084,32 @@ button_event[dvTpSchedulingRmsCustom,BTN_SCHEDULING_MAKE_RESERVATION]
 	}
 }
 
+// Custom event on START draggble button (1410)
+CUSTOM_EVENT[dvTpTableVideo,btnsDraggable,MODERO_CUSTOM_EVENT_ID_DRAG_STARTED]
+{
+    //Get the dragButtonAddress from the customEvent
+    custom.value1 = custom.ID 
+    SEND_COMMAND dvTpTableVideo,"'^ANI-',ITOA(BTN_ADR_DROP_AREA_ENCODER),',2,2,0'"   
+	SEND_COMMAND dvTpTableVideo,"'^ANI-',ITOA(BTN_ADR_DROP_AREA_LCD),',2,2,0'" 
+	//SEND_COMMAND dvTpTableVideo,"'^ANI-',ITOA(BTN_ADR_DROP_AREA_PREVIEW),',2,2,0'" 
+}
+
+//When a draggable enters a droppable area (1411)
+CUSTOM_EVENT[dvTpTableVideo,btnsDropTargets,MODERO_CUSTOM_EVENT_ID_DROP_ENTER]
+{
+    SEND_COMMAND dvTpTableVideo,"'^ANI-',ITOA(custom.ID),',2,2,0'"
+}
+
+//When a draggable Exits a drop area (1412)
+CUSTOM_EVENT[dvTpTableVideo,btnsDropTargets,MODERO_CUSTOM_EVENT_ID_DROP_EXIT]
+{
+   SEND_COMMAND dvTpTableVideo,"'^ANI-',ITOA(custom.ID),',1,1,0'"
+}
+
+// Custom event on DROP draggble button on target (1413)
 custom_event[dvTpTableVideo,BTN_ADR_DROP_AREA_LCD,MODERO_CUSTOM_EVENT_ID_DROP]
 custom_event[dvTpTableVideo,BTN_ADR_DROP_AREA_ENCODER,MODERO_CUSTOM_EVENT_ID_DROP]
-custom_event[dvTpTableVideo,BTN_ADR_DROP_AREA_PREVIEW,MODERO_CUSTOM_EVENT_ID_DROP]
+//custom_event[dvTpTableVideo,BTN_ADR_DROP_AREA_PREVIEW,MODERO_CUSTOM_EVENT_ID_DROP]
 {
   // what do I want to do?
   // #1 - work out which draggable I dropped onto this drop area for the lcd
@@ -1103,16 +1126,51 @@ custom_event[dvTpTableVideo,BTN_ADR_DROP_AREA_PREVIEW,MODERO_CUSTOM_EVENT_ID_DRO
 	{
 	  case BTN_ADR_DRAGGABLE_HDMI:	// HDMI laptop input
 	  {
-		// switch the DVX input for the HDMI laptop to the output for the LCD
 		dvxSwitchAll(dvDvxMain, dvDvxVidInLaptopHdmi.port, dvDvxVidOutLcd.port)
+	  }
+	  case BTN_ADR_DRAGGABLE_VGA:  //VGA Laptop Input
+	  {
+	    dvxSwitchAll(dvDvxMain, dvDvxVidInLaptopVGA.port, dvDvxVidOutLCD.port)
+	  }
+	  case BTN_ADR_DRAGGABLE_STREAM:  //
+	  {
+	    dvxSwitchAll(dvDvxMain, dvDvxVidInDecoder.port, dvDvxVidOutLcd.port)
+	  }
+	  case BTN_ADR_DRAGGABLE_ENZO:
+	  {
+		dvxSwitchAll(dvDvxMain, dvDvxVidInEnzo.port, dvDvxVidOutLcd.port)
 	  }
 	}
   }
   else if(custom.id == BTN_ADR_DROP_AREA_ENCODER)
   {
-	// blah blah blah
+	switch (custom.value1)
+	{
+	  case BTN_ADR_DRAGGABLE_HDMI:	// HDMI laptop input
+	  {
+		dvxSwitchAll(dvDvxMain, dvDvxVidInLaptopHdmi.port, dvDvxVidOutEncoder.port)
+	  }
+	  case BTN_ADR_DRAGGABLE_VGA:	// VGA laptop input
+	  {
+		dvxSwitchAll(dvDvxMain, dvDvxVidInLaptopVGA.port, dvDvxVidOutEncoder.port)
+	  }
+	  case BTN_ADR_DRAGGABLE_ENZO:	// Enzo input
+	  {
+		dvxSwitchAll(dvDvxMain, dvDvxVidInEnzo.port, dvDvxVidOutEncoder.port)
+	  }
+	  case BTN_ADR_DRAGGABLE_STREAM:// Stream Input
+	  {
+		dvxSwitchAll(dvDvxMain, dvDvxVidInDecoder.port, dvDvxVidOutEncoder.port)
+	  }
+	}
   }
   
+}
+
+// Cancel Event (1414)
+CUSTOM_EVENT[dvTpTableVideo,btnsDraggable,MODERO_CUSTOM_EVENT_ID_DRAG_CANCEL]
+{
+    SEND_COMMAND dvTpTableVideo,"'^ANI-',ITOA(custom.ID),',1,1,0'"   
 }
 
 #end_if

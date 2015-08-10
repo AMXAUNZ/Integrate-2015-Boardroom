@@ -205,7 +205,7 @@ dvDvxVidInTx3        = dvDvxVidIn9
 dvDvxVidInTx4        = dvDvxVidIn10
 dvDvxVidInLaptopHdmi = dvDvxVidIn9
 dvDvxVidInLaptopVGA  = dvDvxVidIn10
-dvDvxVidInEncoder    = dvDvxVidIn8
+dvDvxVidInDecoder    = dvDvxVidIn8
 
 // DVX Video Outputs
 dvDvxVidOut1    = DEV_ID_DVX_SWITCHER:DVX_PORT_VID_OUT_1:SYS_MASTER
