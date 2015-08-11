@@ -22,8 +22,8 @@ define_constant
 // Drag Items
 
 // Drop Items
-integer BTN_DROP_AREA_TP_TABLE_HIGHLIGHT_MONITOR_LEFT  = 61
-integer BTN_DROP_AREA_TP_TABLE_HIGHLIGHT_MONITOR_RIGHT = 62
+integer BTN_DROP_AREA_TP_TABLE_HIGHLIGHT_MONITOR_LEFT  = 161
+integer BTN_DROP_AREA_TP_TABLE_HIGHLIGHT_MONITOR_RIGHT = 162
 
 
 
@@ -111,15 +111,17 @@ integer BTN_DEBUG_REBUILD_EVENT_TABLE   = 1
 integer BTN_DEBUG_WAKE_ON_LAN_PC        = 2
 
 // draggable button address codes
-integer BTN_ADR_DRAGGABLE_HDMI   = 1
-integer BTN_ADR_DRAGGABLE_VGA    = 2
-integer BTN_ADR_DRAGGABLE_STREAM = 3
-integer BTN_ADR_DRAGGABLE_ENZO   = 4
+integer BTN_ADR_DRAGGABLE_HDMI   = 15
+integer BTN_ADR_DRAGGABLE_VGA    = 16
+integer BTN_ADR_DRAGGABLE_STREAM = 19
+integer BTN_ADR_DRAGGABLE_ENZO   = 20
 
 // drop area button address codes
-integer BTN_ADR_DROP_AREA_LCD     = 17
-integer BTN_ADR_DROP_AREA_ENCODER = 18
-integer BTN_ADR_DROP_AREA_PREVIEW = 19
+integer BTN_ADR_DROP_AREA_LCD     = 61
+integer BTN_ADR_DROP_AREA_ENCODER = 62
+
+//clear dragged sources
+integer BTN_ADR_CLEAR_SOURCES     = 63
 
 // Lighting Control
 integer BTN_LIGHTING_PRESET_ALL_OFF         = 1

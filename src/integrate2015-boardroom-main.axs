@@ -2,21 +2,21 @@ PROGRAM_NAME='integrate2015-boardroom-main'
 
 /*
 SYSTEM IP ADDRESSES
-DVX: xxx.xxx.xxx.31
-NMX Decoder: xxx.xxx.xxx.36
-Enzo: xxx.xxx.xxx.37
-SPX-1300: xxx.xxx.xxx.38
-DX-TX1: xxx.xxx.xxx.39 (surface pro)
-DX-TX2: xxx.xxx.xxx.40 (VGA laptop)
-DX-RX: xxx.xxx.xxx.41
-NMX Encoder: xxx.xxx.xxx.42
-MXT-1001: xxx.xxx.xxx.32 (main)
-MXD-1000P: xxx.xxx.xxx.33 (scheduling)
-Alero: xxx.xxx.xxx.34
+DVX: 192.169.251.31
+NMX Decoder: 192.169.251.3136
+Enzo: 192.169.251.3137
+SPX-1300: 192.169.251.3138
+DX-TX1: 192.169.251.3139 (surface pro)
+DX-TX2: 192.169.251.3140 (VGA laptop)
+DX-RX: 192.169.251.3141
+NMX Encoder: 192.169.251.3142
+MXT-1001: 192.169.251.3132 (main)
+MXD-1000P: 192.169.251.3133 (scheduling)
+Alero: 192.169.251.3134
 
-BDRM_SW1: xxx.xxx.xxx.233
-BDRM_SW2: xxx.xxx.xxx.234
-Programmers IP: xxx.xxx.xxx.232
+BDRM_SW1: 192.169.251.31233
+BDRM_SW2: 192.169.251.31234
+Programmers IP: 192.169.251.21
 */
 
 // IP address of DVX in boardroom demo at Integrate 2014: 192.168.251.81
