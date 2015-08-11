@@ -1,0 +1,35 @@
+# NFC user association file
+#
+# This is a temporary solution as we don't have access to a 'real' directory
+# service to store this data. Each line is a user entity. Format is as below:
+#     <nfcUid>,<name>,<email address>
+# E.g: A1B2C3D4,Joe Blogs,joe.blogs@amxaustralia.com.au
+
+
+0402C73A853281, Maciej Nadstazik, maciej.nadstazik@amxaustralia.com.au, maciej.nadstazik.jpg
+041EBE3A853280, Anna Mallon, anna.mallon@amxaustralia.com.au, anna.mallon.jpg
+04E3013A853284, Graham Evans, graham.evans@amxaustralia.com.au, graham.evans.jpg
+04BFF13A853280, Graham Barrett, graham.barrett@amxaustralia.com.au, graham.barrett.jpg
+0411C93A853281, Jared Walley, jared.walley@amxaustralia.com.au, jared.walley.jpg
+049D053A853284, Simon Brewster, simon.brewster@amxaustralia.com.au, simon.brewster.jpg
+04A1EC3A853280, Amit Singh, amit.singh@amxaustralia.com.au, amit.singh.jpg
+0490133A853284, Scott Pyke, scott.pyke@amxaustralia.com.au, scott.pyke.jpg
+0413C83A853280, Peter Swanson, peter.swanson@amxaustralia.com.au, pete.swanson.jpg
+04D27D3A853280, Phil Dunn, phil.dunn@amxaustralia.com.au, phil-dunn.jpg
+0462003A853284, Richard Nagle, richard.nagle@amxaustralia.com.au, richard.nagle.jpg
+0492033A853284, David Vine, david.vine@amxaustralia.com.au, david.vine.jpg
+048AEC3A853280, Quentin White, quentin.white@amxaustralia.com.au, quentin-white.jpg
+0413C03A853281, Kenyon Page, kenyon.page@amxaustralia.com.au, kenyon.page.jpg
+04CF8C3A853280, Jeremy West, jeremy.west@amxaustralia.com.au, jeremy.west.jpg
+#No photos
+045D123A853284, Niek Groot, niek.groot@amxaustralia.com.au, no-photo.png
+04A00B3A853284, Leah Harley, leah.harley@amxaustralia.com.au, no-photo.png
+04B7883A853280, Scott Collis, scott.collis@amxaustralia.com.au, no-photo.png
+04C80A3A853284, Sarah Luckhardt, sarah.luckhardt@amxaustralia.com.au, no-photo.png
+04DAFE3A853280, David Rigter, david.rigter@amxaustralia.com.au, no-photo.png
+0487F63A853280, David Allanson, david.allanson@amxaustralia.com.au, no-photo.png
+0461C23A853280, Scott Reid, scott.reid@amxaustralia.com.au, no-photo.png
+041F813A853280, Chris Wakefield, chris.wakefield@amxaustralia.com.au, no-photo.png
+041FC73A853280, Cindy Harrington, cindy.harrington@amxaustralia.com.au, no-photo.png
+0492F13A853280, Steph Henriksen, stephanie.henriksen@amxaustralia.com.au, no-photo.png
+047EF63A853280, Bree Bray, bree.bray@amxaustralia.com.au, no-photo.png

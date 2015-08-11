@@ -51,7 +51,7 @@ INTEGER LIGHTING_LEVEL_100_PERCENT  = 255
 
 //define_module 'CBus_Comm' mCbusNetLinx (vdvLight, dvLight, cLightStatus)
 
-define_module 'Clipsal_CBus_Comm_dr1_0_0' mCbusDuet(vdvLight, dvLight)
+//define_module 'Clipsal_CBus_Comm_dr1_0_0' mCbusDuet(vdvLight, dvLight)
 
 
 /*

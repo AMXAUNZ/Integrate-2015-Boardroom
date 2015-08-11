@@ -1111,11 +1111,8 @@ custom_event[dvTpTableVideo,BTN_ADR_DROP_AREA_LCD,MODERO_CUSTOM_EVENT_ID_DROP]
 custom_event[dvTpTableVideo,BTN_ADR_DROP_AREA_ENCODER,MODERO_CUSTOM_EVENT_ID_DROP]
 //custom_event[dvTpTableVideo,BTN_ADR_DROP_AREA_PREVIEW,MODERO_CUSTOM_EVENT_ID_DROP]
 {
-  // what do I want to do?
-  // #1 - work out which draggable I dropped onto this drop area for the lcd
-  // #2 - work out which DVX input that draggable relates to
-  // #3 - work out which output on the DVX the LCD is connected to
-  // #4 - do a switch on the DVX from the selected input to the lcd output
+
+  ON[dvTpTableVideo,custom.value1]
   
   // CUSTOM.VALUE1 contains the address code of the draggable button
   // CUSTOM.ID contains the address code of the drop area button
@@ -1164,13 +1161,28 @@ custom_event[dvTpTableVideo,BTN_ADR_DROP_AREA_ENCODER,MODERO_CUSTOM_EVENT_ID_DRO
 	  }
 	}
   }
-  
 }
 
 // Cancel Event (1414)
 CUSTOM_EVENT[dvTpTableVideo,btnsDraggable,MODERO_CUSTOM_EVENT_ID_DRAG_CANCEL]
 {
     SEND_COMMAND dvTpTableVideo,"'^ANI-',ITOA(custom.ID),',1,1,0'"   
+}
+
+
+//CLEAR DROPPED SOURCES
+BUTTON_EVENT[dvTpTableVideo,BTN_ADR_CLEAR_SOURCES]
+{
+  PUSH:
+  {
+    OFF[dvTpTableVideo,BTN_ADR_DRAGGABLE_HDMI]
+    OFF[dvTpTableVideo,BTN_ADR_DRAGGABLE_ENZO]
+    OFF[dvTpTableVideo,BTN_ADR_DRAGGABLE_STREAM]
+    OFF[dvTpTableVideo,BTN_ADR_DRAGGABLE_VGA]
+    SEND_COMMAND dvTpTableVideo,"'^ANI-',ITOA(BTN_ADR_DROP_AREA_ENCODER),',1,1,0'"
+	SEND_COMMAND dvTpTableVideo,"'^ANI-',ITOA(BTN_ADR_DROP_AREA_LCD),',1,1,0'"
+	dvxSwitchAll(dvDvxMain, DVX_PORT_VID_IN_NONE, dvDvxVidOutLcd.port)
+  }
 }
 
 #end_if

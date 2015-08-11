@@ -15,8 +15,8 @@ program_name='nec-monitor'
 
 define_device
 
-//dvMonitor = 5001:1:0
-//vdvMonitor = 41001:1:0    // Duet module virtual device
+dvMonitor = 5001:1:0
+vdvMonitor = 41001:1:0    // Duet module virtual device
 
 
 /*
@@ -26,8 +26,8 @@ define_device
  */
 
 //define_module 'NEC_LCD5710_Comm_dr1_0_0' NEC_Left(vdvMonitor, dvMonitor)
-define_module 'NEC_LCD5710_Comm_dr1_0_0' NEC_Left(vdvMonitorLeft, dvMonitorLeft)
-define_module 'NEC_LCD5710_Comm_dr1_0_0' NEC_Right(vdvMonitorRight, dvMonitorRight)
+//define_module 'NEC_LCD5710_Comm_dr1_0_0' NEC_Left(vdvMonitorLeft, dvMonitorLeft)
+//define_module 'NEC_LCD5710_Comm_dr1_0_0' NEC_Right(vdvMonitorRight, dvMonitorRight)
 
 
 /*
