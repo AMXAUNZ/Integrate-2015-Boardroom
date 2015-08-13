@@ -272,6 +272,9 @@ VOLATILE DEV dvRMSTP_Base[] =
  * --------------------
  */
 
+//draggable input source buttons
+integer nDraggableButton[] = {BTN_ADR_DRAGGABLE_HDMI, BTN_ADR_DRAGGABLE_VGA, BTN_ADR_DRAGGABLE_ENZO, BTN_ADR_DRAGGABLE_STREAM}
+
 persistent integer selectedVideoInputMonitorLeft    = 0
 persistent integer selectedVideoInputMonitorRight   = 0
 persistent char signalStatusDvxInputMonitorLeft[50]

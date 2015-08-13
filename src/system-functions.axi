@@ -161,7 +161,7 @@ define_function processUserInteractionWelcomePanel ()
  */
 
 
-#define INCLUDE_MODERO_NOTIFY_TOUCH_COORDINATES_PRESS
+//#define INCLUDE_MODERO_NOTIFY_TOUCH_COORDINATES_PRESS
 // Note: This will get triggered BEFORE a push event handler in a button_event
 // Note: If push/release coordinate reporting is enabled a push anywhere on the panel will trigger this function
 define_function moderoNotifyTouchCoordinatesPress (dev panel, integer nX, integer nY)
@@ -174,7 +174,7 @@ define_function moderoNotifyTouchCoordinatesPress (dev panel, integer nX, intege
 		processUserInteractionWelcomePanel ()
 }
 
-#define INCLUDE_MODERO_NOTIFY_TOUCH_COORDINATES_RELEASE
+//#define INCLUDE_MODERO_NOTIFY_TOUCH_COORDINATES_RELEASE
 // Note: This will get triggered AFTER a release event handler in a button_event
 // Note: If push/release coordinate reporting is enabled a release anywhere on the panel will trigger this function
 define_function moderoNotifyTouchCoordinatesRelease (dev panel, integer nX, integer nY)
@@ -1444,7 +1444,7 @@ define_function meetingStarted()
  */
 
 
-#define INCLUDE_DVX_NOTIFY_VIDEO_OUTPUT_TEST_PATTERN_CALLBACK
+//#define INCLUDE_DVX_NOTIFY_VIDEO_OUTPUT_TEST_PATTERN_CALLBACK
 define_function dvxNotifyVideoOutputTestPattern (dev dvxVideoOutput, char testPattern[])
 {
 	// dvxVideoOutput is the D:P:S of the output port on the DVX switcher. The output number can be taken from dvxVideoOutput.PORT
@@ -1452,7 +1452,7 @@ define_function dvxNotifyVideoOutputTestPattern (dev dvxVideoOutput, char testPa
 	//dvx.videoOutputs[dvxVideoOutput.port].testPattern = testPattern
 }
 
-#define INCLUDE_DVX_NOTIFY_SWITCH_CALLBACK
+//#define INCLUDE_DVX_NOTIFY_SWITCH_CALLBACK
 define_function dvxNotifySwitch (dev dvxPort1, char signalType[], integer input, integer output)
 {
 	// dvxPort1 is port 1 on the DVX.
@@ -1482,7 +1482,7 @@ define_function dvxNotifySwitch (dev dvxPort1, char signalType[], integer input,
 }
 
 
-#define INCLUDE_DVX_NOTIFY_VIDEO_INPUT_NAME_CALLBACK
+//#define INCLUDE_DVX_NOTIFY_VIDEO_INPUT_NAME_CALLBACK
 define_function dvxNotifyVideoInputName (dev dvxVideoInput, char name[])
 {
 	// dvxVideoInput is the D:P:S of the video input port on the DVX switcher. The input number can be taken from dvxVideoInput.PORT
@@ -1492,7 +1492,7 @@ define_function dvxNotifyVideoInputName (dev dvxVideoInput, char name[])
 }
 
 
-#define INCLUDE_DVX_NOTIFY_VIDEO_INPUT_STATUS_CALLBACK
+//#define INCLUDE_DVX_NOTIFY_VIDEO_INPUT_STATUS_CALLBACK
 define_function dvxNotifyVideoInputStatus (dev dvxVideoInput, char signalStatus[])
 {
 	// dvxVideoInput is the D:P:S of the video input port on the DVX switcher. The input number can be taken from dvxVideoInput.PORT
@@ -1612,7 +1612,7 @@ define_function dvxNotifyVideoInputStatus (dev dvxVideoInput, char signalStatus[
 }
 
 
-#define INCLUDE_DVX_NOTIFY_AUDIO_OUT_MUTE_CALLBACK
+//#define INCLUDE_DVX_NOTIFY_AUDIO_OUT_MUTE_CALLBACK
 define_function dvxNotifyAudioOutMute (dev dvxAudioOutput, char muteStatus[])
 {
 	// dvxAudioOutput is the D:P:S of the video output port on the DVX switcher. The output number can be taken from dvDvxAudioOutput.PORT
@@ -1632,7 +1632,7 @@ define_function dvxNotifyAudioOutMute (dev dvxAudioOutput, char muteStatus[])
 }
 
 
-#define INCLUDE_DVX_NOTIFY_AUDIO_OUT_VOLUME_CALLBACK
+//#define INCLUDE_DVX_NOTIFY_AUDIO_OUT_VOLUME_CALLBACK
 define_function dvxNotifyAudioOutVolume (dev dvxAudioOutput, integer volume)
 {
 	// dvxAudioOutput is the D:P:S of the video output port on the DVX switcher. The output number can be taken from dvDvxAudioOutput.PORT
@@ -1646,7 +1646,7 @@ define_function dvxNotifyAudioOutVolume (dev dvxAudioOutput, integer volume)
 	}
 }
 
-#define INCLUDE_DVX_NOTIFY_AUDIO_OUT_MAXIMUM_VOLUME_CALLBACK
+//#define INCLUDE_DVX_NOTIFY_AUDIO_OUT_MAXIMUM_VOLUME_CALLBACK
 define_function dvxNotifyAudioOutMaximumVolume (dev dvxAudioOutput, integer maxVol)
 {
 	// dvxAudioOutput is the D:P:S of the video output port on the DVX switcher. The output number can be taken from dvDvxAudioOutput.PORT
@@ -1667,7 +1667,7 @@ define_function dvxNotifyAudioOutMaximumVolume (dev dvxAudioOutput, integer maxV
  */
 
 
-#define INCLUDE_DXLINK_NOTIFY_RX_VIDEO_OUTPUT_RESOLUTION_CALLBACK
+//#define INCLUDE_DXLINK_NOTIFY_RX_VIDEO_OUTPUT_RESOLUTION_CALLBACK
 define_function dxlinkNotifyRxVideoOutputResolution (dev dxlinkRxVideoOutput, char resolution[])
 {
 	// dxlinkRxVideoOutput is the D:P:S of the video output port on the DXLink receiver
@@ -1689,7 +1689,7 @@ define_function dxlinkNotifyRxVideoOutputResolution (dev dxlinkRxVideoOutput, ch
 }
 
 
-#define INCLUDE_DXLINK_NOTIFY_RX_VIDEO_OUTPUT_SCALE_MODE_CALLBACK
+//#define INCLUDE_DXLINK_NOTIFY_RX_VIDEO_OUTPUT_SCALE_MODE_CALLBACK
 define_function dxlinkNotifyRxVideoOutputScaleMode (dev dxlinkRxVideoOutput, char scaleMode[])
 {
 	// dxlinkRxVideoOutput is the D:P:S of the video output port on the DXLink receiver
@@ -1720,7 +1720,7 @@ define_function dxlinkNotifyRxVideoOutputScaleMode (dev dxlinkRxVideoOutput, cha
 }
 
 
-#define INCLUDE_DXLINK_NOTIFY_RX_VIDEO_OUTPUT_ASPECT_RATIO_CALLBACK
+//#define INCLUDE_DXLINK_NOTIFY_RX_VIDEO_OUTPUT_ASPECT_RATIO_CALLBACK
 define_function dxlinkNotifyRxVideoOutputAspectRatio (dev dxlinkRxVideoOutput, char aspectRatio[])
 {
 	// dxlinkRxVideoOutput is the D:P:S of the video output port on the DXLink receiver
@@ -1753,7 +1753,7 @@ define_function dxlinkNotifyRxVideoOutputAspectRatio (dev dxlinkRxVideoOutput, c
 }
 
 
-#define INCLUDE_DXLINK_NOTIFY_TX_VIDEO_INPUT_AUTO_SELECT_CALLBACK
+//#define INCLUDE_DXLINK_NOTIFY_TX_VIDEO_INPUT_AUTO_SELECT_CALLBACK
 define_function dxlinkNotifyTxVideoInputAutoSelect (dev dxlinkTxPort1, char status[])
 {
 	// dvDxlinkTxPort1 is the port #1 on the DXLink Tx
@@ -1785,7 +1785,7 @@ define_function dxlinkNotifyTxVideoInputAutoSelect (dev dxlinkTxPort1, char stat
 }
 
 
-#define INCLUDE_DXLINK_NOTIFY_TX_VIDEO_INPUT_STATUS_ANALOG_CALLBACK
+//#define INCLUDE_DXLINK_NOTIFY_TX_VIDEO_INPUT_STATUS_ANALOG_CALLBACK
 define_function dxlinkNotifyTxVideoInputStatusAnalog (dev dxlinkTxAnalogVideoInput, char signalStatus[])
 {
 	// dxlinkTxAnalogVideoInput is the analog video input port on the DXLink Tx
@@ -1805,7 +1805,7 @@ define_function dxlinkNotifyTxVideoInputStatusAnalog (dev dxlinkTxAnalogVideoInp
 }
 
 
-#define INCLUDE_DXLINK_NOTIFY_TX_VIDEO_INPUT_STATUS_DIGITAL_CALLBACK
+//#define INCLUDE_DXLINK_NOTIFY_TX_VIDEO_INPUT_STATUS_DIGITAL_CALLBACK
 define_function dxlinkNotifyTxVideoInputStatusDigital (dev dxlinkTxDigitalVideoInput, char signalStatus[])
 {
 	// dxlinkTxDigitalVideoInput is the digital video input port on the DXLink Tx
@@ -1824,7 +1824,7 @@ define_function dxlinkNotifyTxVideoInputStatusDigital (dev dxlinkTxDigitalVideoI
 	}
 }
 
-#define INCLUDE_DXLINK_NOTIFY_TX_SWITCH_CALLBACK
+//#define INCLUDE_DXLINK_NOTIFY_TX_SWITCH_CALLBACK
 define_function dxlinkNotifyTxSwitch (dev dxlinkTxPort1, integer input, integer output)
 {
 	// dxlinkTxPort1 is port 1 on the DXLink Tx.
@@ -1865,7 +1865,7 @@ define_function dxlinkNotifyTxSwitch (dev dxlinkTxPort1, integer input, integer 
 
 
 
-#define INCLUDE_PDU_NOTIFY_POWER_SENSE_TRIGGER_CALLBACK
+//#define INCLUDE_PDU_NOTIFY_POWER_SENSE_TRIGGER_CALLBACK
 define_function pduNotifyPowerSenseTrigger (dev pduPort1, integer outlet, float triggerValue)
 {
 	// pduPort1 is port 1 on the PDU
@@ -1876,7 +1876,7 @@ define_function pduNotifyPowerSenseTrigger (dev pduPort1, integer outlet, float 
 }
 
 
-#define INCLUDE_PDU_NOTIFY_OUTLET_OVER_POWER_SENSE_TRIGGER_CALLBACK
+//#define INCLUDE_PDU_NOTIFY_OUTLET_OVER_POWER_SENSE_TRIGGER_CALLBACK
 define_function pduNotifyOutletOverPowerSenseTrigger (dev pduOutletPort)
 {
 	// dvPduOutlet is an outlet device on the PDU which has gone over the power sense trigger value
@@ -1894,7 +1894,7 @@ define_function pduNotifyOutletOverPowerSenseTrigger (dev pduOutletPort)
 }
 
 
-#define INCLUDE_PDU_NOTIFY_OUTLET_UNDER_POWER_SENSE_TRIGGER_CALLBACK
+//#define INCLUDE_PDU_NOTIFY_OUTLET_UNDER_POWER_SENSE_TRIGGER_CALLBACK
 define_function pduNotifyOutletUnderPowerSenseTrigger (dev pduOutletPort)
 {
 	// pduOutletPort is an outlet device on the PDU which has gone under the power sense trigger value
@@ -1912,7 +1912,7 @@ define_function pduNotifyOutletUnderPowerSenseTrigger (dev pduOutletPort)
 }
 
 
-#define INCLUDE_PDU_NOTIFY_OUTLET_RELAY_CALLBACK
+//#define INCLUDE_PDU_NOTIFY_OUTLET_RELAY_CALLBACK
 define_function pduNotifyOutletRelay (dev pduOutletPort, integer relayStatus)
 {
 	// dvPduOutlet is an outlet device on the PDU
@@ -1952,7 +1952,7 @@ define_function pduNotifyOutletRelay (dev pduOutletPort, integer relayStatus)
 
 
 
-#define INCLUDE_PDU_NOTIFY_INPUT_VOLTAGE_CALLBACK
+//#define INCLUDE_PDU_NOTIFY_INPUT_VOLTAGE_CALLBACK
 define_function pduNotifyInputVoltage (dev pduPort1, float voltage)
 {
 	// pduPort1 is the first device on the PDU
@@ -1961,7 +1961,7 @@ define_function pduNotifyInputVoltage (dev pduPort1, float voltage)
 }
 
 
-#define INCLUDE_PDU_NOTIFY_TEMPERATURE_CALLBACK
+//#define INCLUDE_PDU_NOTIFY_TEMPERATURE_CALLBACK
 define_function pduNotifyTemperature (dev pduPort1, float temperature)
 {
 	// pduPort1 is the first device on the PDU
@@ -1970,7 +1970,7 @@ define_function pduNotifyTemperature (dev pduPort1, float temperature)
 }
 
 
-#define INCLUDE_PDU_NOTIFY_OUTLET_POWER_CALLBACK
+//#define INCLUDE_PDU_NOTIFY_OUTLET_POWER_CALLBACK
 define_function pduNotifyOutletPower (dev pduOutletPort, float wattage)
 {
 	// pduOutletPort is the outlet on the PDU reporting its power
@@ -1989,7 +1989,7 @@ define_function pduNotifyOutletPower (dev pduOutletPort, float wattage)
 }
 
 
-#define INCLUDE_PDU_NOTIFY_OUTLET_CURRENT_CALLBACK
+//#define INCLUDE_PDU_NOTIFY_OUTLET_CURRENT_CALLBACK
 define_function pduNotifyOutletCurrent (dev pduOutletPort, float current)
 {
 	// pduOutletPort is the outlet on the PDU reporting its current
@@ -2009,7 +2009,7 @@ define_function pduNotifyOutletCurrent (dev pduOutletPort, float current)
 
 
 
-#define INCLUDE_PDU_NOTIFY_OUTLET_POWER_CALLBACK
+//#define INCLUDE_PDU_NOTIFY_OUTLET_POWER_CALLBACK
 define_function pduNotifyOutletEnergy (dev pduOutletPort, float accumulatedEnergy)
 {
 	// pduOutletPort is the outlet on the PDU reporting its accumulated energy
@@ -2028,7 +2028,7 @@ define_function pduNotifyOutletEnergy (dev pduOutletPort, float accumulatedEnerg
 }
 
 
-#define INCLUDE_PDU_NOTIFY_AXLINK_VOLTAGE_CALLBACK
+//#define INCLUDE_PDU_NOTIFY_AXLINK_VOLTAGE_CALLBACK
 define_function pduNotifyAxlinkVoltage (dev pduPort2, float voltage)
 {
 	// pduPort2 is an Axlink bus on the PDU
@@ -2049,7 +2049,7 @@ define_function pduNotifyAxlinkVoltage (dev pduPort2, float voltage)
  */
 
 
-#define INCLUDE_CONTROLPORTS_NOTIFY_IO_INPUT_ON_CALLBACK
+//#define INCLUDE_CONTROLPORTS_NOTIFY_IO_INPUT_ON_CALLBACK
 define_function amxControlPortNotifyIoInputOn (dev ioPort, integer ioChanCde)
 {
 	// ioPort is the IO port.
@@ -2076,7 +2076,7 @@ define_function amxControlPortNotifyIoInputOn (dev ioPort, integer ioChanCde)
 
 
 
-#define INCLUDE_CONTROLPORTS_NOTIFY_IO_INPUT_OFF_CALLBACK
+//#define INCLUDE_CONTROLPORTS_NOTIFY_IO_INPUT_OFF_CALLBACK
 define_function amxControlPortNotifyIoInputOff (dev ioPort, integer ioChanCde)
 {
 	// ioPort is the IO port.
@@ -2144,7 +2144,7 @@ define_function amxControlPortNotifyIoInputOff (dev ioPort, integer ioChanCde)
 (* in response to a query for the current active booking   *)
 (*                                                         *)
 (***********************************************************)
-#DEFINE INCLUDE_SCHEDULING_ACTIVE_RESPONSE_CALLBACK
+//#DEFINE INCLUDE_SCHEDULING_ACTIVE_RESPONSE_CALLBACK
 DEFINE_FUNCTION RmsEventSchedulingActiveResponse(CHAR isDefaultLocation, 
 												 INTEGER recordIndex, 
 												 INTEGER recordCount, 
@@ -2182,7 +2182,7 @@ DEFINE_FUNCTION RmsEventSchedulingActiveResponse(CHAR isDefaultLocation,
 (* in response to a query for the next active booking      *)
 (*                                                         *)
 (***********************************************************)
-#DEFINE INCLUDE_SCHEDULING_NEXT_ACTIVE_RESPONSE_CALLBACK
+//#DEFINE INCLUDE_SCHEDULING_NEXT_ACTIVE_RESPONSE_CALLBACK
 DEFINE_FUNCTION RmsEventSchedulingNextActiveResponse(CHAR isDefaultLocation, 
 													INTEGER recordIndex, 
 													INTEGER recordCount, 
@@ -2311,7 +2311,7 @@ define_function clearNextMeetingInfo ()
 (* in response to a booking creation request               *)
 (*                                                         *)
 (***********************************************************)
-#DEFINE INCLUDE_SCHEDULING_CREATE_RESPONSE_CALLBACK
+//#DEFINE INCLUDE_SCHEDULING_CREATE_RESPONSE_CALLBACK
 DEFINE_FUNCTION RmsEventSchedulingCreateResponse(CHAR isDefaultLocation, 
 												 CHAR responseText[], 
 											     RmsEventBookingResponse eventBookingResponse)
@@ -2440,7 +2440,7 @@ DEFINE_FUNCTION RmsEventSchedulingCreateResponse(CHAR isDefaultLocation,
 (* in response to a extending a booking event              *)
 (*                                                         *)
 (***********************************************************)
-#DEFINE INCLUDE_SCHEDULING_EXTEND_RESPONSE_CALLBACK
+//#DEFINE INCLUDE_SCHEDULING_EXTEND_RESPONSE_CALLBACK
 DEFINE_FUNCTION RmsEventSchedulingExtendResponse(CHAR isDefaultLocation, 
 												 CHAR responseText[], 
 												 RmsEventBookingResponse eventBookingResponse)
@@ -2489,7 +2489,7 @@ DEFINE_FUNCTION RmsEventSchedulingExtendResponse(CHAR isDefaultLocation,
 (* booking event                                           *)
 (*                                                         *)
 (***********************************************************)
-#DEFINE INCLUDE_SCHEDULING_ACTIVE_UPDATED_CALLBACK
+//#DEFINE INCLUDE_SCHEDULING_ACTIVE_UPDATED_CALLBACK
 DEFINE_FUNCTION RmsEventSchedulingActiveUpdated(CHAR bookingId[], 
 												RmsEventBookingResponse eventBookingResponse)
 {
@@ -2565,7 +2565,7 @@ DEFINE_FUNCTION RmsEventSchedulingActiveUpdated(CHAR bookingId[],
 (* booking event                                           *)
 (*                                                         *)
 (***********************************************************)
-#DEFINE INCLUDE_SCHEDULING_NEXT_ACTIVE_UPDATED_CALLBACK
+//#DEFINE INCLUDE_SCHEDULING_NEXT_ACTIVE_UPDATED_CALLBACK
 DEFINE_FUNCTION RmsEventSchedulingNextActiveUpdated(CHAR bookingId[], 
 													RmsEventBookingResponse eventBookingResponse)
 {
@@ -2604,7 +2604,7 @@ DEFINE_FUNCTION RmsEventSchedulingNextActiveUpdated(CHAR bookingId[],
 (* when RMS indicates a booking event has ended            *)
 (*                                                         *)
 (***********************************************************)
-#DEFINE INCLUDE_SCHEDULING_EVENT_ENDED_CALLBACK
+//#DEFINE INCLUDE_SCHEDULING_EVENT_ENDED_CALLBACK
 DEFINE_FUNCTION RmsEventSchedulingEventEnded(CHAR bookingId[], 
 											 RmsEventBookingResponse eventBookingResponse)
 {
@@ -2639,7 +2639,7 @@ DEFINE_FUNCTION RmsEventSchedulingEventEnded(CHAR bookingId[],
 (* when RMS indicates a booking event has started          *)
 (*                                                         *)
 (***********************************************************)
-#DEFINE INCLUDE_SCHEDULING_EVENT_STARTED_CALLBACK
+//#DEFINE INCLUDE_SCHEDULING_EVENT_STARTED_CALLBACK
 DEFINE_FUNCTION RmsEventSchedulingEventStarted(CHAR bookingId[], 
 											   RmsEventBookingResponse eventBookingResponse)
 {

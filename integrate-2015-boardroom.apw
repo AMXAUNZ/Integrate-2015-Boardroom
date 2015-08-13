@@ -144,6 +144,10 @@
 <FilePathName>src\inc\debug.axi</FilePathName>
 <Comments></Comments>
 </File>
+<File CompileType="Netlinx" Type="Include"><Identifier>dev-sandbox</Identifier>
+<FilePathName>src\inc\dev-sandbox.axi</FilePathName>
+<Comments></Comments>
+</File>
 <File CompileType="Netlinx" Type="Include"><Identifier>amx-controlports-api</Identifier>
 <FilePathName>src\inc\lib\amx-device-library\amx-controlports-api.axi</FilePathName>
 <Comments></Comments>
