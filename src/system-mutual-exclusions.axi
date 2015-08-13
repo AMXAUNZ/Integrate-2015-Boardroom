@@ -15,6 +15,7 @@ PROGRAM_NAME='system-mutual-exclusions'
  */
 define_mutually_exclusive
 
+//JW
 //draggable button exclusions
 ([dvTpTableVideo,BTN_ADR_DRAGGABLE_HDMI]..[dvTpTableVideo, BTN_ADR_DRAGGABLE_ENZO])
 

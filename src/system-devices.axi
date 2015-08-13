@@ -196,16 +196,11 @@ dvDvxVidIn8     = DEV_ID_DVX_SWITCHER:DVX_PORT_VID_IN_8:SYS_MASTER
 dvDvxVidIn9     = DEV_ID_DVX_SWITCHER:DVX_PORT_VID_IN_9:SYS_MASTER
 dvDvxVidIn10    = DEV_ID_DVX_SWITCHER:DVX_PORT_VID_IN_10:SYS_MASTER
 // Names ports
-dvDvxVidInSignage    = dvDvxVidIn7
-dvDvxVidInEnzo       = dvDvxVidIn5
-dvDvxVidInAppleTv    = dvDvxVidIn6
-dvDvxVidInTx1        = dvDvxVidIn4
-dvDvxVidInTx2        = dvDvxVidIn8
-dvDvxVidInTx3        = dvDvxVidIn9
-dvDvxVidInTx4        = dvDvxVidIn10
-dvDvxVidInLaptopHdmi = dvDvxVidIn9
-dvDvxVidInLaptopVGA  = dvDvxVidIn10
-dvDvxVidInDecoder    = dvDvxVidIn7
+dvDvxVidInSignage      = dvDvxVidIn7 
+dvDvxVidInEnzo         = dvDvxVidIn5
+dvDvxVidInLaptopHdmi   = dvDvxVidIn9
+dvDvxVidInLaptopVGA    = dvDvxVidIn10
+dvDvxVidInSignageStrem  = dvDvxVidIn8 //used in system shutdown state
 
 // DVX Video Outputs
 dvDvxVidOut1    = DEV_ID_DVX_SWITCHER:DVX_PORT_VID_OUT_1:SYS_MASTER

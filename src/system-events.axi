@@ -1088,7 +1088,7 @@ button_event[dvTpSchedulingRmsCustom,BTN_SCHEDULING_MAKE_RESERVATION]
 CUSTOM_EVENT[dvTpTableVideo,btnsDraggable,MODERO_CUSTOM_EVENT_ID_DRAG_STARTED]
 {
     //Get the dragButtonAddress from the customEvent
-    custom.value1 = custom.ID 
+    nDragAddress = custom.ID 
     SEND_COMMAND dvTpTableVideo,"'^ANI-',ITOA(BTN_ADR_DROP_AREA_ENCODER),',2,2,0'"   
 	SEND_COMMAND dvTpTableVideo,"'^ANI-',ITOA(BTN_ADR_DROP_AREA_LCD),',2,2,0'" 
 	//SEND_COMMAND dvTpTableVideo,"'^ANI-',ITOA(BTN_ADR_DROP_AREA_PREVIEW),',2,2,0'" 
@@ -1112,7 +1112,8 @@ custom_event[dvTpTableVideo,BTN_ADR_DROP_AREA_ENCODER,MODERO_CUSTOM_EVENT_ID_DRO
 //custom_event[dvTpTableVideo,BTN_ADR_DROP_AREA_PREVIEW,MODERO_CUSTOM_EVENT_ID_DROP]
 {
 
-  ON[dvTpTableVideo,custom.value1]
+  //Turn ON Source Button Address based on custom_event 1410
+  ON[dvTpTableVideo,nDragAddress]
   
   // CUSTOM.VALUE1 contains the address code of the draggable button
   // CUSTOM.ID contains the address code of the drop area button
@@ -1131,12 +1132,12 @@ custom_event[dvTpTableVideo,BTN_ADR_DROP_AREA_ENCODER,MODERO_CUSTOM_EVENT_ID_DRO
 	    //dvxSwitchAll(dvDvxMain, dvDvxVidInLaptopVGA.port, dvDvxVidOutLCD.port)
 		sendSelectedInputToLeftMonitor (dvDvxVidInLaptopVGA.port, dvDvxVidOutLcd.port)
 	  }
-	  case BTN_ADR_DRAGGABLE_STREAM:  //
+	  case BTN_ADR_DRAGGABLE_SKYPE:  //Skype static image from SPX Player
 	  {
 	    //dvxSwitchAll(dvDvxMain, dvDvxVidInDecoder.port, dvDvxVidOutLcd.port)
-		sendSelectedInputToLeftMonitor (dvDvxVidInDecoder.port, dvDvxVidOutLcd.port)
+		sendSelectedInputToLeftMonitor (dvDvxVidInSignage.port, dvDvxVidOutLcd.port)
 	  }
-	  case BTN_ADR_DRAGGABLE_ENZO:
+	  case BTN_ADR_DRAGGABLE_ENZO:  //MirrorOp Demo on Enzo1
 	  {
 		//dvxSwitchAll(dvDvxMain, dvDvxVidInEnzo.port, dvDvxVidOutLcd.port)
 		sendSelectedInputToLeftMonitor (dvDvxVidInEnzo.port, dvDvxVidOutLcd.port)
@@ -1159,7 +1160,7 @@ custom_event[dvTpTableVideo,BTN_ADR_DROP_AREA_ENCODER,MODERO_CUSTOM_EVENT_ID_DRO
 	  {
 		//dvxSwitchAll(dvDvxMain, dvDvxVidInEnzo.port, dvDvxVidOutEncoder.port)
 	  }
-	  case BTN_ADR_DRAGGABLE_STREAM:// Stream Input
+	  case BTN_ADR_DRAGGABLE_SKYPE:// Stream Input
 	  {
 		//dvxSwitchAll(dvDvxMain, dvDvxVidInDecoder.port, dvDvxVidOutEncoder.port)
 	  }
@@ -1174,30 +1175,20 @@ CUSTOM_EVENT[dvTpTableVideo,btnsDraggable,MODERO_CUSTOM_EVENT_ID_DRAG_CANCEL]
 }
 
 
-//CLEAR DROPPED SOURCES
+//CLEAR DROPPED SOURCES AND ROUTE NO INPUT TO OUTPUT
 BUTTON_EVENT[dvTpTableVideo,BTN_ADR_CLEAR_SOURCES]
 {
   PUSH:
   {
     OFF[dvTpTableVideo,BTN_ADR_DRAGGABLE_HDMI]
     OFF[dvTpTableVideo,BTN_ADR_DRAGGABLE_ENZO]
-    OFF[dvTpTableVideo,BTN_ADR_DRAGGABLE_STREAM]
+    OFF[dvTpTableVideo,BTN_ADR_DRAGGABLE_SKYPE]
     OFF[dvTpTableVideo,BTN_ADR_DRAGGABLE_VGA]
     //SEND_COMMAND dvTpTableVideo,"'^ANI-',ITOA(BTN_ADR_DROP_AREA_ENCODER),',1,1,0'"
 	SEND_COMMAND dvTpTableVideo,"'^ANI-',ITOA(BTN_ADR_DROP_AREA_LCD),',1,1,0'"
-	dvxSwitchAll(dvDvxMain, DVX_PORT_VID_IN_NONE, dvDvxVidOutLcd.port)
+	//dvxSwitchAll(dvDvxMain, DVX_PORT_VID_IN_NONE, dvDvxVidOutLcd.port)
+	sendSelectedInputToLeftMonitor (DVX_PORT_VID_IN_NONE, dvDvxVidOutLcd.port)
   }
 }
-
-/*
-//add button feedback routine here
-button_event[dvTpTableVideo, nDraggableButton]
-{
-  RELEASE:
-  {
-  
-  }
-}
-*/
 
 #end_if

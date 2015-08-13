@@ -25,32 +25,6 @@ define_constant
 integer BTN_DROP_AREA_TP_TABLE_HIGHLIGHT_MONITOR_LEFT  = 161
 integer BTN_DROP_AREA_TP_TABLE_HIGHLIGHT_MONITOR_RIGHT = 162
 
-
-
-/*
- * --------------------
- * Keypad button channel/address/level codes
- * --------------------
- */
-
-// channel codes
-integer BTN_KP_OFF              = 1
-integer BTN_KP_LIGHTS           = 2
-integer BTN_KP_BLOCKOUTS        = 3
-integer BTN_KP_SHADES           = 4
-integer BTN_KP_AV_OFF           = 5
-integer BTN_KP_WHITEBOARD       = 6
-integer BTN_KP_CURSOR_UP        = 7
-integer BTN_KP_CURSOR_DN        = 8
-integer BTN_KP_CURSOR_LT        = 9
-integer BTN_KP_CURSOR_RT        = 10
-integer BTN_KP_ENTER            = 11
-integer BTN_KP_WHEEL_ROTATE_LT  = 12
-integer BTN_KP_WHEEL_ROTATE_RT  = 13
-// level codes
-integer nLVL_KP_JOG_WHEEL       = 1
-
-
 /*
  * --------------------
  * Scheduling touch panel button channel/address/level codes
@@ -115,6 +89,7 @@ integer BTN_ADR_DRAGGABLE_HDMI   = 19
 integer BTN_ADR_DRAGGABLE_VGA    = 20
 integer BTN_ADR_DRAGGABLE_STREAM = 17
 integer BTN_ADR_DRAGGABLE_ENZO   = 15
+integer BTN_ADR_DRAGGABLE_SKYPE  = 17
 
 // drop area button address codes
 integer BTN_ADR_DROP_AREA_LCD     = 61
