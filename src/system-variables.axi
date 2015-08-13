@@ -166,10 +166,13 @@ dev dvIoPorts[] = {dvDvxIos}
  */
 
 //array for Draggable buttons
-integer btnsDraggable[] = {BTN_ADR_DRAGGABLE_VGA, BTN_ADR_DRAGGABLE_ENZO, BTN_ADR_DRAGGABLE_HDMI, BTN_ADR_DRAGGABLE_STREAM}
+integer btnsDraggable[] = {BTN_ADR_DRAGGABLE_VGA, BTN_ADR_DRAGGABLE_ENZO, BTN_ADR_DRAGGABLE_HDMI, BTN_ADR_DRAGGABLE_SKYPE}
 
 //array for drop targets
 integer btnsDropTargets[] = {BTN_ADR_DROP_AREA_ENCODER, BTN_ADR_DROP_AREA_LCD}
+
+//Track last dragged button address
+INTEGER nDragAddress = 0
 
 integer btnsVideoSnapshotPreviews[DVX_MAX_VIDEO_INPUTS] = 
 {
