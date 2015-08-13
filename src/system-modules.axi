@@ -15,7 +15,7 @@ PROGRAM_NAME='system-modules'
 define_module
 
 
-'drag-and-drop' dragAndDropMod (vdvDragAndDropTpTable, dvTpTableDragAndDrop)
+//'drag-and-drop' dragAndDropMod (vdvDragAndDropTpTable, dvTpTableDragAndDrop)
 
 'multi-preview-dvx' multiPreviewDvx (vdvMultiPreview,
                                      dvDvxVidOutMultiPreview, 

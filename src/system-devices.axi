@@ -20,11 +20,11 @@ integer DEV_ID_MASTER                               = 0
 integer DEV_ID_TOUCH_PANEL_TABLE                    = 10001
 integer DEV_ID_TOUCH_PANEL_SCHEDULING               = 10002
 integer DEV_ID_ENZO                                 = 9001
-integer DEV_ID_TX_1                                 = 7001
-integer DEV_ID_TX_2                                 = 7002
+integer DEV_ID_TX_1                                 = 6001
+integer DEV_ID_TX_2                                 = 6002
 integer DEV_ID_TX_3                                 = 7003
 integer DEV_ID_TX_4                                 = 7004
-integer DEV_ID_RX_MONITOR_LEFT                      = 8001
+integer DEV_ID_RX_MONITOR_LEFT                      = 7001
 integer DEV_ID_RX_MONITOR_RIGHT                     = 8002
 integer DEV_ID_DVX_CONTROLLER                       = 5001
 integer DEV_ID_DVX_SWITCHER                         = 5002
@@ -205,7 +205,7 @@ dvDvxVidInTx3        = dvDvxVidIn9
 dvDvxVidInTx4        = dvDvxVidIn10
 dvDvxVidInLaptopHdmi = dvDvxVidIn9
 dvDvxVidInLaptopVGA  = dvDvxVidIn10
-dvDvxVidInDecoder    = dvDvxVidIn8
+dvDvxVidInDecoder    = dvDvxVidIn7
 
 // DVX Video Outputs
 dvDvxVidOut1    = DEV_ID_DVX_SWITCHER:DVX_PORT_VID_OUT_1:SYS_MASTER

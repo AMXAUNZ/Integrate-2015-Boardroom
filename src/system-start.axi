@@ -20,7 +20,7 @@ PROGRAM_NAME='system-start'
 define_start
 
 
-rmsSchedule.locationId = 64
+rmsSchedule.locationId = 1
 
 
 initArea (dropAreasTpTable[dvDvxVidOutMonitorLeft.port], 438, 164, 320, 180)

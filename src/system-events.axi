@@ -1123,19 +1123,23 @@ custom_event[dvTpTableVideo,BTN_ADR_DROP_AREA_ENCODER,MODERO_CUSTOM_EVENT_ID_DRO
 	{
 	  case BTN_ADR_DRAGGABLE_HDMI:	// HDMI laptop input
 	  {
-		dvxSwitchAll(dvDvxMain, dvDvxVidInLaptopHdmi.port, dvDvxVidOutLcd.port)
+		//dvxSwitchAll(dvDvxMain, dvDvxVidInLaptopHdmi.port, dvDvxVidOutLcd.port)
+		sendSelectedInputToLeftMonitor (dvDvxVidInLaptopHdmi.port, dvDvxVidOutLcd.port)
 	  }
 	  case BTN_ADR_DRAGGABLE_VGA:  //VGA Laptop Input
 	  {
-	    dvxSwitchAll(dvDvxMain, dvDvxVidInLaptopVGA.port, dvDvxVidOutLCD.port)
+	    //dvxSwitchAll(dvDvxMain, dvDvxVidInLaptopVGA.port, dvDvxVidOutLCD.port)
+		sendSelectedInputToLeftMonitor (dvDvxVidInLaptopVGA.port, dvDvxVidOutLcd.port)
 	  }
 	  case BTN_ADR_DRAGGABLE_STREAM:  //
 	  {
-	    dvxSwitchAll(dvDvxMain, dvDvxVidInDecoder.port, dvDvxVidOutLcd.port)
+	    //dvxSwitchAll(dvDvxMain, dvDvxVidInDecoder.port, dvDvxVidOutLcd.port)
+		sendSelectedInputToLeftMonitor (dvDvxVidInDecoder.port, dvDvxVidOutLcd.port)
 	  }
 	  case BTN_ADR_DRAGGABLE_ENZO:
 	  {
-		dvxSwitchAll(dvDvxMain, dvDvxVidInEnzo.port, dvDvxVidOutLcd.port)
+		//dvxSwitchAll(dvDvxMain, dvDvxVidInEnzo.port, dvDvxVidOutLcd.port)
+		sendSelectedInputToLeftMonitor (dvDvxVidInEnzo.port, dvDvxVidOutLcd.port)
 	  }
 	}
   }
@@ -1145,19 +1149,19 @@ custom_event[dvTpTableVideo,BTN_ADR_DROP_AREA_ENCODER,MODERO_CUSTOM_EVENT_ID_DRO
 	{
 	  case BTN_ADR_DRAGGABLE_HDMI:	// HDMI laptop input
 	  {
-		dvxSwitchAll(dvDvxMain, dvDvxVidInLaptopHdmi.port, dvDvxVidOutEncoder.port)
+		//dvxSwitchAll(dvDvxMain, dvDvxVidInLaptopHdmi.port, dvDvxVidOutEncoder.port)
 	  }
 	  case BTN_ADR_DRAGGABLE_VGA:	// VGA laptop input
 	  {
-		dvxSwitchAll(dvDvxMain, dvDvxVidInLaptopVGA.port, dvDvxVidOutEncoder.port)
+		//dvxSwitchAll(dvDvxMain, dvDvxVidInLaptopVGA.port, dvDvxVidOutEncoder.port)
 	  }
 	  case BTN_ADR_DRAGGABLE_ENZO:	// Enzo input
 	  {
-		dvxSwitchAll(dvDvxMain, dvDvxVidInEnzo.port, dvDvxVidOutEncoder.port)
+		//dvxSwitchAll(dvDvxMain, dvDvxVidInEnzo.port, dvDvxVidOutEncoder.port)
 	  }
 	  case BTN_ADR_DRAGGABLE_STREAM:// Stream Input
 	  {
-		dvxSwitchAll(dvDvxMain, dvDvxVidInDecoder.port, dvDvxVidOutEncoder.port)
+		//dvxSwitchAll(dvDvxMain, dvDvxVidInDecoder.port, dvDvxVidOutEncoder.port)
 	  }
 	}
   }
@@ -1179,12 +1183,21 @@ BUTTON_EVENT[dvTpTableVideo,BTN_ADR_CLEAR_SOURCES]
     OFF[dvTpTableVideo,BTN_ADR_DRAGGABLE_ENZO]
     OFF[dvTpTableVideo,BTN_ADR_DRAGGABLE_STREAM]
     OFF[dvTpTableVideo,BTN_ADR_DRAGGABLE_VGA]
-    SEND_COMMAND dvTpTableVideo,"'^ANI-',ITOA(BTN_ADR_DROP_AREA_ENCODER),',1,1,0'"
+    //SEND_COMMAND dvTpTableVideo,"'^ANI-',ITOA(BTN_ADR_DROP_AREA_ENCODER),',1,1,0'"
 	SEND_COMMAND dvTpTableVideo,"'^ANI-',ITOA(BTN_ADR_DROP_AREA_LCD),',1,1,0'"
 	dvxSwitchAll(dvDvxMain, DVX_PORT_VID_IN_NONE, dvDvxVidOutLcd.port)
   }
 }
 
+/*
 //add button feedback routine here
+button_event[dvTpTableVideo, nDraggableButton]
+{
+  RELEASE:
+  {
+  
+  }
+}
+*/
 
 #end_if

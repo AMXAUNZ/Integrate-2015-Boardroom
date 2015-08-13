@@ -111,10 +111,10 @@ integer BTN_DEBUG_REBUILD_EVENT_TABLE   = 1
 integer BTN_DEBUG_WAKE_ON_LAN_PC        = 2
 
 // draggable button address codes
-integer BTN_ADR_DRAGGABLE_HDMI   = 15
-integer BTN_ADR_DRAGGABLE_VGA    = 16
-integer BTN_ADR_DRAGGABLE_STREAM = 19
-integer BTN_ADR_DRAGGABLE_ENZO   = 20
+integer BTN_ADR_DRAGGABLE_HDMI   = 19
+integer BTN_ADR_DRAGGABLE_VGA    = 20
+integer BTN_ADR_DRAGGABLE_STREAM = 17
+integer BTN_ADR_DRAGGABLE_ENZO   = 15
 
 // drop area button address codes
 integer BTN_ADR_DROP_AREA_LCD     = 61
