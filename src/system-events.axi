@@ -33,6 +33,23 @@ define_event
  * --------------------
  */
 
+//MirrorOP Enzo
+data_event[dvEnzo]
+{
+  online:
+  {
+	SEND_COMMAND dvEnzo, "'MIRROROP.STARTSCREEN-en_US,$NAME,,IP:$IP, Code: $PASSCODE'"
+  }
+}
+
+//Multicast RX Enzo
+data_event[dvEnzo2]
+{
+  Online:
+  {
+	send_Command dvEnzo2, "'VIEW-video/mpg,udp://234.1.0.1:5500'"	//Display signage UDP Cast
+  }
+}
 
 data_event[vdvRmsGui]
 {

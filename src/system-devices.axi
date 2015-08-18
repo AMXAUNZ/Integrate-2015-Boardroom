@@ -19,7 +19,8 @@ define_constant
 integer DEV_ID_MASTER                               = 0
 integer DEV_ID_TOUCH_PANEL_TABLE                    = 10001
 integer DEV_ID_TOUCH_PANEL_SCHEDULING               = 10002
-integer DEV_ID_ENZO                                 = 9001
+integer DEV_ID_ENZO                                 = 9001 //MirrorOP Demo
+integer DEV_ID_ENZO2								= 9002 //Multicast RX
 integer DEV_ID_TX_1                                 = 6001
 integer DEV_ID_TX_2                                 = 6002
 integer DEV_ID_TX_3                                 = 7003
@@ -201,6 +202,13 @@ dvDvxVidInEnzo         = dvDvxVidIn5
 dvDvxVidInLaptopHdmi   = dvDvxVidIn9
 dvDvxVidInLaptopVGA    = dvDvxVidIn10
 dvDvxVidInSignageStrem  = dvDvxVidIn8 //used in system shutdown state
+//not used
+dvDvxVidInAppleTv       = dvDvxVidIn8
+dvDvxVidInTx1			= dvDvxVidIn1
+dvDvxVidInTx2			= dvDvxVidIn2
+dvDvxVidInTx3			= dvDvxVidIn3
+dvDvxVidInTx4			= dvDvxVidIn4
+
 
 // DVX Video Outputs
 dvDvxVidOut1    = DEV_ID_DVX_SWITCHER:DVX_PORT_VID_OUT_1:SYS_MASTER
@@ -256,7 +264,8 @@ dvRelaysRelBox  = DEV_ID_RELAY_BOX:PORT_AXLINK:SYS_MASTER
 dvPtzCam    = DEV_ID_DVX_CONTROLLER:PORT_DVX_SERIAL_1:SYS_MASTER
 
 // Enzo
-dvEnzo = DEV_ID_ENZO:PORT_ENZO_MAIN:SYS_MASTER
+dvEnzo = DEV_ID_ENZO:PORT_ENZO_MAIN:SYS_MASTER		//MirrorOP Demo
+dvEnzo2 = DEV_ID_ENZO2:PORT_ENZO_MAIN:SYS_MASTER	//MultiCast RX
 
 // PDU
 dvPduMain1  = DEV_ID_PDU_1:PORT_AXLINK:SYS_MASTER
