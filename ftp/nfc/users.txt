@@ -11,7 +11,6 @@
 04ADFC3A853280,Graham Evans,graham.evans@amxaustralia.com.au,graham.evans.jpg
 048DF93A853280,Graham Barrett,graham.barrett@amxaustralia.com.au,graham.barrett.jpg
 0496FB3A853280,Jared Walley,jared.walley@amxaustralia.com.au,jared.walley.JPG
-049D053A853284,Simon Brewer,simon.brewer@amxaustralia.com.au,simon.brewer.jpg
 04A1EC3A853280,Amit Singh,amit.singh@amxaustralia.com.au,amit.singh.jpg
 04720D3A853284,Scott Pyke,scott.pyke@amxaustralia.com.au,scott.pyke.jpg
 04ACFB3A853280,Peter Swanson,peter.swanson@amxaustralia.com.au,peter.swanson.jpg
@@ -28,11 +27,15 @@
 04A00B3A853284,Leah Harley,leah.harley@amxaustralia.com.au,leah-harley.jpg
 04B7883A853280,Scott Collis,scott.collis@amxaustralia.com.au,scott-collis.jpg
 04DAFE3A853280,David Rigter,david.rigter@amxaustralia.com.au,david-rigter.jpg
-04C2C73A853280,Bree Bray,bree.bray@amxaustralia.com.au,bree-bray.jpg
-#nophoto
+046A0D3A853284,Lee Dodson,lee.dodson@harman.com,lee-dodson.jpg
+0403D53A853281,Shaun Robinson,shaun.robinson@harman.com,shaun-robinson.jpg
+044C073A853284,Nicolette Minnie,nicolette.minnie@amxaustralia.com.au,nicolette-minnie.jpg
+04F6EF3A853280,Jess Nicholson,jessica.nicholson@amxaustralia.com.au,jessica-nicholson.jpg
+044BC63A853280,Jeremy West,jeremy.west@amxaustralia.com.au,jeremy.west.jpg
+#no-photo
 041F813A853280, Chris Wakefield, chris.wakefield@amxaustralia.com.au, no-photo.jpg
-041FC73A853280, Cindy H,cindy.harrington@amxaustralia.com.au, no-photo.jpg
-0492F13A853280, Steph Henriksen, stephanie.henriksen@amxaustralia.com.au, no-photo.jpg
+#maintenance 
 045EFB3A853280,Maintenance,maintenance@amxaustralia.com.au,no-photo.jpg 
-
+0474FE3A853280,Maintenance,maintenance@amxaustralia.com.au,no-photo.jpg
+04710D3A853284,Maintenance,maintenance@amxaustralia.com.au,no-photo.jpg
 

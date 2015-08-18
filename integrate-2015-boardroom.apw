@@ -300,6 +300,10 @@
 <FilePathName>src\mod\drag-and-drop\touch-tracker.axi</FilePathName>
 <Comments></Comments>
 </File>
+<File CompileType="Netlinx" Type="Module"><Identifier>DvxMultiPreview</Identifier>
+<FilePathName>src\mod\multi-preview-dvx\DvxMultiPreview.axs</FilePathName>
+<Comments></Comments>
+</File>
 <File CompileType="Netlinx" Type="Module"><Identifier>multi-preview-dvx</Identifier>
 <FilePathName>src\mod\multi-preview-dvx\multi-preview-dvx.axs</FilePathName>
 <Comments></Comments>

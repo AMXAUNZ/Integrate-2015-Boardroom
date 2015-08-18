@@ -17,7 +17,7 @@ define_mutually_exclusive
 
 //JW
 //draggable button exclusions
-([dvTpTableVideo,BTN_ADR_DRAGGABLE_HDMI]..[dvTpTableVideo, BTN_ADR_DRAGGABLE_ENZO])
+([dvTpTableVideo,19],[dvTpTableVideo,20],[dvTpTableVideo,17],[dvTpTableVideo,15])
 
 // DXLink Rx Aspect Ratio Mode Buttons
 (

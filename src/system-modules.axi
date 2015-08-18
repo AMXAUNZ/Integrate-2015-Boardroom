@@ -16,7 +16,7 @@ define_module
 
 
 //'drag-and-drop' dragAndDropMod (vdvDragAndDropTpTable, dvTpTableDragAndDrop)
-
+/*
 'multi-preview-dvx' multiPreviewDvx (vdvMultiPreview,
                                      dvDvxVidOutMultiPreview, 
                                      dvTpTableVideo, 
@@ -33,7 +33,16 @@ define_module
                                      popupNameVideoPreview,
                                      imageFileNameNoVideo)
 
-
+'DvxMultiPreview' dvxMultiPreview(vdvMultiPreview,
+                               dvTpTableVideo,
+                               dvDvxVidOutMultiPreview,
+                               btnsVideoSnapshotPreviews,
+                               btnAdrsVideoInputLabels,
+                               btnLoadingBarMultiState,
+                               btnAdrVideoPreviewWindow,
+                               imageFileNameNoVideo)
+							   
+*/
 
 'RmsNetLinxAdapter_dr4_0_0' mdlRMSNetLinx(vdvRMS)
 

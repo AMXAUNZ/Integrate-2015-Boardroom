@@ -214,40 +214,61 @@ define_function copyUserInfo (_user userToCopyFrom, _user userToCopyTo)
 
 define_function nfcTagDetectedTablePanel (char nfcTag[])
 {
+  debugPrint ("'ENTER nfcTagDetectedTablePanel (char nfcTag[])'")
+  debugPrint ("'  - nfcTag = "',nfcTag,'"'")
+  
+  debugPrint ("'nfcTagDetectedTablePanel  - #1'")
 	if ( [vdvRms,RMS_CHANNEL_CLIENT_ONLINE] == false )	// lost connection to RMS
 	{
 		// allow any NFC card to start using the panel - special case in case Internet drops during the Integrate tradeshow
 		_user user
+		debugPrint ("'nfcTagDetectedTablePanel  - #2'")
 		unlockTablePanel (user)
+		debugPrint ("'nfcTagDetectedTablePanel  - #3'")
 	}
 	else if (tablePanelInUse == false)	// am connected to RMS so just need to check that the table panel is not already being used
 	{
+	  debugPrint ("'nfcTagDetectedTablePanel  - #4'")
 		// next step is to authenticate NFC card...
 		if (authenticateUserNfcTag(nfcTag) == true)
 		{
 			_user user
+			debugPrint ("'nfcTagDetectedTablePanel  - #5'")
 			getUserDetailsFromNfcTag (nfcTag, user)
-			
+			debugPrint ("'nfcTagDetectedTablePanel  - #6'")
 			// now check that the user is the person who booked the room...or maintenance (maintenance should always be allowed access)
 			if (user.name == USER_NAME_MAINTENANCE)
 			{
+			  debugPrint ("'nfcTagDetectedTablePanel  - #6'")
 				unlockTablePanel (user)
+				debugPrint ("'nfcTagDetectedTablePanel  - #7'")
 			}
 			else if (user.name == rmsSchedule.currentMeetingOrganizerName)
 			{
+			  debugPrint ("'nfcTagDetectedTablePanel  - #8'")
 				if (userShutdownSystemToEndMeeting == false)
 				{
+				  debugPrint ("'nfcTagDetectedTablePanel  - #9'")
 					unlockTablePanel (user)
+					debugPrint ("'nfcTagDetectedTablePanel  - #10'")
 				}
+				debugPrint ("'nfcTagDetectedTablePanel  - #11'")
 			}
 			else
+			{
+			  debugPrint ("'nfcTagDetectedTablePanel  - #12'")
 				userAccessTablePanelDenied ()
+				debugPrint ("'nfcTagDetectedTablePanel  - #13'")
+			}
 		}
 		else	// unauthorised NFC card
 		{
+		  debugPrint ("'nfcTagDetectedTablePanel  - #14'")
 			userAccessTablePanelDenied ()
+			debugPrint ("'nfcTagDetectedTablePanel  - #15'")
 		}
 	}
+	debugPrint ("'EXIT nfcTagDetectedTablePanel (...)'")
 }
 
 define_function nfcTagDetectedWelcomePanel (char nfcTag[])
@@ -271,12 +292,15 @@ define_function nfcTagDetectedWelcomePanel (char nfcTag[])
 
 define_function userAccessTablePanelDenied ()
 {
+  debugPrint ("'EXIT userAccessTablePanelDenied (...)'")
 	moderoPlaySoundFile (dvTpTableMain, soundFileInvalidId)
+	debugPrint ("'EXIT userAccessTablePanelDenied (...)'")
 }
 
 
 define_function unlockTablePanel (_user user)
 {
+  debugPrint("'ENTER unlockTablePanel (_user user)'")
 	moderoPlaySoundFile (dvTpTableMain, soundFileValidId)
 	
 	moderoDisableAllPopups (dvTpTableMain)
@@ -287,14 +311,15 @@ define_function unlockTablePanel (_user user)
 	
 	//show the draggable source popups
 	moderoEnablePopupOnPage (dvTpTableMain, POPUP_NAME_DRAGGABLE_SOURCES[dvDvxVidInEnzo.port],PAGE_NAME_MAIN_USER)
-	moderoEnablePopupOnPage (dvTpTableMain, POPUP_NAME_DRAGGABLE_SOURCES[dvDvxVidInAppleTv.port],PAGE_NAME_MAIN_USER)
-	moderoEnablePopupOnPage (dvTpTableMain, POPUP_NAME_DRAGGABLE_SOURCES[dvDvxVidInTx3.port],PAGE_NAME_MAIN_USER)
-	moderoEnablePopupOnPage (dvTpTableMain, POPUP_NAME_DRAGGABLE_SOURCES[dvDvxVidInTx4.port],PAGE_NAME_MAIN_USER)
+	//moderoEnablePopupOnPage (dvTpTableMain, POPUP_NAME_DRAGGABLE_SOURCES[dvDvxVidInAppleTv.port],PAGE_NAME_MAIN_USER)
+	//moderoEnablePopupOnPage (dvTpTableMain, POPUP_NAME_DRAGGABLE_SOURCES[dvDvxVidInTx3.port],PAGE_NAME_MAIN_USER)
+	//moderoEnablePopupOnPage (dvTpTableMain, POPUP_NAME_DRAGGABLE_SOURCES[dvDvxVidInTx4.port],PAGE_NAME_MAIN_USER)
 	
 	// activate the source selection drag areas
 	enableDragItemsAll (vdvDragAndDropTpTable)
 	
 	tablePanelInUse = true
+	debugPrint("'EXIT unlockTablePanel (_user user)'")
 }
 
 
@@ -381,6 +406,8 @@ define_function integer authenticateUserNfcTag (char nfcTag[])
 	stack_var slong fileHandle
 	stack_var char buffer[300]
 	
+	debugPrint("'ENTER authenticateUserNfcTag (char nfcTag[])'")
+	
 	resultFileOpen = file_open (filePathNfcUserList,file_read_only)
 	
 	if(resultFileOpen > 0)	// handle to file (open was successful)
@@ -411,6 +438,7 @@ define_function integer authenticateUserNfcTag (char nfcTag[])
 		debugPrint ("'Error opening nfc users file. Error code = <',itoa(resultFileOpen),'>'")
 		return false
 	}
+	debugPrint("'EXIT authenticateUserNfcTag (char nfcTag[])'")
 }
 
 
@@ -1149,8 +1177,8 @@ define_function shutdownAvSystem ()
 	
 	wait waitTimeDigitalSignage 'WAITING TO SHOW SIGNAGE'
 	{
-		dvxSwitchVideoOnly(dvDvxMain, dvDvxVidInSignage.port, dvDvxVidOutMonitorLeft.port)
-		dvxSwitchVideoOnly(dvDvxMain, dvDvxVidInSignage.port, dvDvxVidOutMonitorRight.port)
+		dvxSwitchVideoOnly(dvDvxMain, dvDvxVidInSignageStrem.port, dvDvxVidOutMonitorLeft.port)
+		dvxSwitchVideoOnly(dvDvxMain, dvDvxVidInSignageStrem.port, dvDvxVidOutMonitorRight.port)
 		if (dvx.videoOutputs[dvDvxVidOutMonitorLeft.port].testPattern != DVX_TEST_PATTERN_OFF)
 		{
 			dvxSetVideoOutputTestPattern (dvDvxVidOutMonitorLeft, DVX_TEST_PATTERN_OFF)
@@ -2422,6 +2450,34 @@ DEFINE_FUNCTION RmsEventSchedulingCreateResponse(CHAR isDefaultLocation,
 	{
 		moderoEnablePopupOnPage (dvTpSchedulingMain, popupBookingUnsuccessful, pageWelcomePanelUnlocked)
 	}
+}
+
+(***********************************************************)
+(* Name:  RmsEventSchedulingEndResponse                    *)
+(* Args:                                                   *)
+(* CHAR isDefaultLocation - boolean, TRUE if the location  *)
+(* in the response is the default location                 *)
+(*                                                         *)
+(* CHAR responseText[] - Booking ID if successful else     *)
+(* some error information.                                 *)
+(*                                                         *)
+(* RmsEventBookingResponse eventBookingResponse - A        *)
+(* structure with additional booking information           *)
+(*                                                         *)
+(* Desc:  Implementations of this method will be called    *)
+(* in response to a ending a booking event                 *)
+(*                                                         *)
+(***********************************************************)
+// #DEFINE INCLUDE_SCHEDULING_END_RESPONSE_CALLBACK
+DEFINE_FUNCTION RmsEventSchedulingEndResponse(CHAR isDefaultLocation, 
+																								CHAR responseText[], 
+																								RmsEventBookingResponse eventBookingResponse)
+{
+	debugPrint ("'******************** FUNCTION - RmsEventSchedulingEndResponse(...)'")
+	debugPrint ("'isDefaultLocation = ',itoa(isDefaultLocation)")
+	debugPrint ("'responseText = ',responseText")
+	debugPrintRmsEventBookingResponse (eventBookingResponse)
+	debugPrint ("'******************************** END FUNCTION ********************************'")
 }
 
 (***********************************************************)
