@@ -38,7 +38,7 @@ data_event[dvEnzo]
 {
   online:
   {
-	SEND_COMMAND dvEnzo, "'MIRROROP.STARTSCREEN-en_US,$NAME,,IP:$IP, Code: $PASSCODE'"
+	SEND_COMMAND dvEnzo, "'APP.LAUNCH-MIRROROP'"
   }
 }
 
@@ -48,6 +48,24 @@ data_event[dvEnzo2]
   Online:
   {
 	send_Command dvEnzo2, "'VIEW-video/mpg,udp://234.1.0.1:5500'"	//Display signage UDP Cast
+  }
+}
+
+//hidden button to call mirrorop incase of failure
+button_event[dvTpTableVideo,150]
+{
+  push:
+  {
+	SEND_COMMAND dvEnzo, "'APP.LAUNCH-MIRROROP'"
+  }
+}
+
+//hidden button to trigger multicast incase of failure
+button_event[dvTpTableVideo,151]
+{
+  push:
+  {
+	send_command dvEnzo2, "'VIEW-video/mpg,udp://234.1.0.1:5500'"
   }
 }
 
@@ -1141,54 +1159,107 @@ custom_event[dvTpTableVideo,BTN_ADR_DROP_AREA_ENCODER,MODERO_CUSTOM_EVENT_ID_DRO
 	{
 	  case BTN_ADR_DRAGGABLE_HDMI:	// HDMI laptop input
 	  {
+		if (dvx.videoInputs[9].status != DVX_SIGNAL_STATUS_VALID_SIGNAL)
+						{
+							moderoEnablePopup (dvTpTableVideo, POPUP_NAME_NO_SIGNAL_ARE_YOU_SURE)
+							wait_until (userAcknowledgedSelectingInputWithNoSignal) 'WAITING_FOR_USER_TO_ACKNOWLEDGE_SENDING_NO_SIGNAL_INPUT_TO_MONITOR'
+							{
+								userAcknowledgedSelectingInputWithNoSignal = false
+								sendSelectedInputToLeftMonitor (dvDvxVidInLaptopHdmi.port, dvDvxVidOutLcd.port)
+							}
+						}
+						else
+						{
+							sendSelectedInputToLeftMonitor (dvDvxVidInLaptopHdmi.port, dvDvxVidOutLcd.port)
+						}
 		//dvxSwitchAll(dvDvxMain, dvDvxVidInLaptopHdmi.port, dvDvxVidOutLcd.port)
-		sendSelectedInputToLeftMonitor (dvDvxVidInLaptopHdmi.port, dvDvxVidOutLcd.port)
+		//sendSelectedInputToLeftMonitor (dvDvxVidInLaptopHdmi.port, dvDvxVidOutLcd.port)
 	  }
 	  case BTN_ADR_DRAGGABLE_VGA:  //VGA Laptop Input
 	  {
+		if (dvx.videoInputs[10].status != DVX_SIGNAL_STATUS_VALID_SIGNAL)
+						{
+							moderoEnablePopup (dvTpTableVideo, POPUP_NAME_NO_SIGNAL_ARE_YOU_SURE)
+							wait_until (userAcknowledgedSelectingInputWithNoSignal) 'WAITING_FOR_USER_TO_ACKNOWLEDGE_SENDING_NO_SIGNAL_INPUT_TO_MONITOR'
+							{
+								userAcknowledgedSelectingInputWithNoSignal = false
+								sendSelectedInputToLeftMonitor (dvDvxVidInLaptopVGA.port, dvDvxVidOutLcd.port)
+							}
+						}
+						else
+						{
+							sendSelectedInputToLeftMonitor (dvDvxVidInLaptopVGA.port, dvDvxVidOutLcd.port)
+						}
 	    //dvxSwitchAll(dvDvxMain, dvDvxVidInLaptopVGA.port, dvDvxVidOutLCD.port)
-		sendSelectedInputToLeftMonitor (dvDvxVidInLaptopVGA.port, dvDvxVidOutLcd.port)
+		//sendSelectedInputToLeftMonitor (dvDvxVidInLaptopVGA.port, dvDvxVidOutLcd.port)
 	  }
 	  case BTN_ADR_DRAGGABLE_SKYPE:  //Skype static image from SPX Player
 	  {
+		if (dvx.videoInputs[7].status != DVX_SIGNAL_STATUS_VALID_SIGNAL)
+						{
+							moderoEnablePopup (dvTpTableVideo, POPUP_NAME_NO_SIGNAL_ARE_YOU_SURE)
+							wait_until (userAcknowledgedSelectingInputWithNoSignal) 'WAITING_FOR_USER_TO_ACKNOWLEDGE_SENDING_NO_SIGNAL_INPUT_TO_MONITOR'
+							{
+								userAcknowledgedSelectingInputWithNoSignal = false
+								sendSelectedInputToLeftMonitor (dvDvxVidInSignage.port, dvDvxVidOutLcd.port)
+							}
+						}
+						else
+						{
+							sendSelectedInputToLeftMonitor (dvDvxVidInSignage.port, dvDvxVidOutLcd.port)
+							send_command dvTpTableVideo,"'^BMC-400,0,3,17,0,$BM'"
+						}
 	    //dvxSwitchAll(dvDvxMain, dvDvxVidInDecoder.port, dvDvxVidOutLcd.port)
-		sendSelectedInputToLeftMonitor (dvDvxVidInSignage.port, dvDvxVidOutLcd.port)
+		//sendSelectedInputToLeftMonitor (dvDvxVidInSignage.port, dvDvxVidOutLcd.port)
 	  }
 	  case BTN_ADR_DRAGGABLE_ENZO:  //MirrorOp Demo on Enzo1
 	  {
+		if (dvx.videoInputs[5].status != DVX_SIGNAL_STATUS_VALID_SIGNAL)
+						{
+							moderoEnablePopup (dvTpTableVideo, POPUP_NAME_NO_SIGNAL_ARE_YOU_SURE)
+							wait_until (userAcknowledgedSelectingInputWithNoSignal) 'WAITING_FOR_USER_TO_ACKNOWLEDGE_SENDING_NO_SIGNAL_INPUT_TO_MONITOR'
+							{
+								userAcknowledgedSelectingInputWithNoSignal = false
+								sendSelectedInputToLeftMonitor (dvDvxVidInEnzo.port, dvDvxVidOutLcd.port)
+							}
+						}
+						else
+						{
+							sendSelectedInputToLeftMonitor (dvDvxVidInEnzo.port, dvDvxVidOutLcd.port)
+						}
 		//dvxSwitchAll(dvDvxMain, dvDvxVidInEnzo.port, dvDvxVidOutLcd.port)
-		sendSelectedInputToLeftMonitor (dvDvxVidInEnzo.port, dvDvxVidOutLcd.port)
+		//sendSelectedInputToLeftMonitor (dvDvxVidInEnzo.port, dvDvxVidOutLcd.port)
+	  }
+	  case BTN_ADR_DRAGGABLE_AMXTV:  //Multicast Enzo Stream
+	  {
+		if (dvx.videoInputs[8].status != DVX_SIGNAL_STATUS_VALID_SIGNAL)
+						{
+							moderoEnablePopup (dvTpTableVideo, POPUP_NAME_NO_SIGNAL_ARE_YOU_SURE)
+							wait_until (userAcknowledgedSelectingInputWithNoSignal) 'WAITING_FOR_USER_TO_ACKNOWLEDGE_SENDING_NO_SIGNAL_INPUT_TO_MONITOR'
+							{
+								userAcknowledgedSelectingInputWithNoSignal = false
+								sendSelectedInputToLeftMonitor (dvDvxVidInSignageStrem.port, dvDvxVidOutLcd.port)
+							}
+						}
+						else
+						{
+							sendSelectedInputToLeftMonitor (dvDvxVidInSignageStrem.port, dvDvxVidOutLcd.port)
+						}
 	  }
 	}
   }
-  else if(custom.id == BTN_ADR_DROP_AREA_ENCODER)
+  /*else if(custom.id == BTN_ADR_DROP_AREA_ENCODER)
   {
-	switch (custom.value1)
-	{
-	  case BTN_ADR_DRAGGABLE_HDMI:	// HDMI laptop input
-	  {
-		//dvxSwitchAll(dvDvxMain, dvDvxVidInLaptopHdmi.port, dvDvxVidOutEncoder.port)
-	  }
-	  case BTN_ADR_DRAGGABLE_VGA:	// VGA laptop input
-	  {
-		//dvxSwitchAll(dvDvxMain, dvDvxVidInLaptopVGA.port, dvDvxVidOutEncoder.port)
-	  }
-	  case BTN_ADR_DRAGGABLE_ENZO:	// Enzo input
-	  {
-		//dvxSwitchAll(dvDvxMain, dvDvxVidInEnzo.port, dvDvxVidOutEncoder.port)
-	  }
-	  case BTN_ADR_DRAGGABLE_SKYPE:// Stream Input
-	  {
-		//dvxSwitchAll(dvDvxMain, dvDvxVidInDecoder.port, dvDvxVidOutEncoder.port)
-	  }
-	}
+	//second drop area was removed...
   }
+  */
 }
 
 // Cancel Event (1414)
 CUSTOM_EVENT[dvTpTableVideo,btnsDraggable,MODERO_CUSTOM_EVENT_ID_DRAG_CANCEL]
 {
-    SEND_COMMAND dvTpTableVideo,"'^ANI-',ITOA(custom.ID),',1,1,0'"   
+    SEND_COMMAND dvTpTableVideo,"'^ANI-',ITOA(custom.ID),',1,1,0'"
+	OFF[dvTpTableVideo,custom.id]	//ensure button feedback does not activate on a cancel drop
 }
 
 
@@ -1201,10 +1272,9 @@ BUTTON_EVENT[dvTpTableVideo,BTN_ADR_CLEAR_SOURCES]
     OFF[dvTpTableVideo,BTN_ADR_DRAGGABLE_ENZO]
     OFF[dvTpTableVideo,BTN_ADR_DRAGGABLE_SKYPE]
     OFF[dvTpTableVideo,BTN_ADR_DRAGGABLE_VGA]
-    //SEND_COMMAND dvTpTableVideo,"'^ANI-',ITOA(BTN_ADR_DROP_AREA_ENCODER),',1,1,0'"
-	SEND_COMMAND dvTpTableVideo,"'^ANI-',ITOA(BTN_ADR_DROP_AREA_LCD),',1,1,0'"
-	//dvxSwitchAll(dvDvxMain, DVX_PORT_VID_IN_NONE, dvDvxVidOutLcd.port)
-	sendSelectedInputToLeftMonitor (DVX_PORT_VID_IN_NONE, dvDvxVidOutLcd.port)
+	OFF[dvTpTableVideo,BTN_ADR_DRAGGABLE_AMXTV]
+	SEND_COMMAND dvTpTableVideo,"'^ANI-',ITOA(BTN_ADR_DROP_AREA_LCD),',1,1,0'"	//clear drop target feedback
+	sendSelectedInputToLeftMonitor (DVX_PORT_VID_IN_NONE, dvDvxVidOutLcd.port)	//route no input to output
   }
 }
 

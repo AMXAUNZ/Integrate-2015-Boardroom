@@ -90,6 +90,7 @@ integer BTN_ADR_DRAGGABLE_VGA    = 20
 integer BTN_ADR_DRAGGABLE_STREAM = 17
 integer BTN_ADR_DRAGGABLE_ENZO   = 15
 integer BTN_ADR_DRAGGABLE_SKYPE  = 17
+integer BTN_ADR_DRAGGABLE_AMXTV	 = 118
 
 // drop area button address codes
 integer BTN_ADR_DROP_AREA_LCD     = 61
