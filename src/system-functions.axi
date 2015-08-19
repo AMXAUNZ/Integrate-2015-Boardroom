@@ -1103,10 +1103,27 @@ define_function setFlagAvSystemInUse (integer boolean)
 {
 	isSystemAvInUse = boolean
 }
-
-
+/*
+//function to clear any switched sources when system shutsdown and update button feedback
+define_function fnClearDraggableSources()
+{
+  OFF[dvTpTableVideo,BTN_ADR_DRAGGABLE_HDMI]
+  OFF[dvTpTableVideo,BTN_ADR_DRAGGABLE_ENZO]
+  OFF[dvTpTableVideo,BTN_ADR_DRAGGABLE_SKYPE]
+  OFF[dvTpTableVideo,BTN_ADR_DRAGGABLE_VGA]
+  SEND_COMMAND dvTpTableVideo,"'^ANI-',ITOA(BTN_ADR_DROP_AREA_LCD),',1,1,0'"
+}
+*/
 define_function shutdownAvSystem ()
 {
+	//clear draggable source buttons
+	OFF[dvTpTableVideo,BTN_ADR_DRAGGABLE_HDMI]
+	OFF[dvTpTableVideo,BTN_ADR_DRAGGABLE_ENZO]
+	OFF[dvTpTableVideo,BTN_ADR_DRAGGABLE_SKYPE]
+	OFF[dvTpTableVideo,BTN_ADR_DRAGGABLE_VGA]
+	//OFF[dvTpTableVideo,BTN_ADR_DRAGGABLE_AMXTV]
+	SEND_COMMAND dvTpTableVideo,"'^ANI-',ITOA(BTN_ADR_DROP_AREA_LCD),',1,1,0'"
+	
 	// Blinds - raise blockouts and shades
 	amxRelayPulse (dvRelaysRelBox, REL_BLOCKOUTS_CORNER_WINDOW_UP)
 	amxRelayPulse (dvRelaysRelBox, REL_BLOCKOUTS_WALL_WINDOW_UP)
