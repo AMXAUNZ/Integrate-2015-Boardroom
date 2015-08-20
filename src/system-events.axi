@@ -1226,6 +1226,7 @@ custom_event[dvTpTableVideo,BTN_ADR_DROP_AREA_ENCODER,MODERO_CUSTOM_EVENT_ID_DRO
 						else
 						{
 							sendSelectedInputToLeftMonitor (dvDvxVidInEnzo.port, dvDvxVidOutLcd.port)
+							SEND_COMMAND dvEnzo, "'APP.LAUNCH-MIRROROP'"
 						}
 		//dvxSwitchAll(dvDvxMain, dvDvxVidInEnzo.port, dvDvxVidOutLcd.port)
 		//sendSelectedInputToLeftMonitor (dvDvxVidInEnzo.port, dvDvxVidOutLcd.port)

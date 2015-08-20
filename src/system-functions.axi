@@ -1123,6 +1123,8 @@ define_function shutdownAvSystem ()
 	OFF[dvTpTableVideo,BTN_ADR_DRAGGABLE_VGA]
 	//OFF[dvTpTableVideo,BTN_ADR_DRAGGABLE_AMXTV]
 	SEND_COMMAND dvTpTableVideo,"'^ANI-',ITOA(BTN_ADR_DROP_AREA_LCD),',1,1,0'"
+	SEND_COMMAND dvEnzo, "'APP.LAUNCH-MIRROROP'"
+	send_Command dvEnzo2, "'VIEW-video/mpg,udp://234.1.0.1:5500'"
 	
 	// Blinds - raise blockouts and shades
 	amxRelayPulse (dvRelaysRelBox, REL_BLOCKOUTS_CORNER_WINDOW_UP)
@@ -1457,6 +1459,7 @@ define_function meetingStarted()
 	CANCEL_WAIT 'WAITING TO SHOW SIGNAGE'
 	
 	showCurrentMeetingInfoOnTableSplashScreen ()
+	SEND_COMMAND dvEnzo, "'APP.LAUNCH-MIRROROP'"
 	
 	if (meetingInSession == false)
 	{
