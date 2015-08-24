@@ -29,7 +29,7 @@ integer DEV_ID_RX_MONITOR_LEFT                      = 7001
 integer DEV_ID_RX_MONITOR_RIGHT                     = 8002
 integer DEV_ID_DVX_CONTROLLER                       = 5001
 integer DEV_ID_DVX_SWITCHER                         = 5002
-integer DEV_ID_RELAY_BOX                            = 69
+integer DEV_ID_RELAY_BOX                            = 6009
 integer DEV_ID_KEYPAD_1                             = 213
 integer DEV_ID_KEYPAD_2                             = 214
 integer DEV_ID_PDU_1                                =  85
@@ -83,7 +83,7 @@ integer PORT_DVX_SERIAL_3           = 3
 integer PORT_DVX_SERIAL_4           = 4
 integer PORT_DVX_SERIAL_5           = 5
 integer PORT_DVX_SERIAL_6           = 6
-integer PORT_DVX_RELAYS             = 8
+integer PORT_DVX_RELAYS             = 21
 integer PORT_DVX_IR_1               = 9
 integer PORT_DVX_IR_2               = 10
 integer PORT_DVX_IR_3               = 11
@@ -258,7 +258,7 @@ dvDvxControllerMain = DEV_ID_DVX_CONTROLLER:PORT_DVX_CONTROLLER_MAIN:SYS_MASTER
 
 // Relays for Blind/Shade Control
 dvRelaysDvx     = DEV_ID_DVX_CONTROLLER:PORT_DVX_RELAYS:SYS_MASTER
-dvRelaysRelBox  = DEV_ID_RELAY_BOX:PORT_AXLINK:SYS_MASTER
+dvRelaysRelBox  = DEV_ID_RELAY_BOX:1:SYS_MASTER
 
 // PTZ Camera
 dvPtzCam    = DEV_ID_DVX_CONTROLLER:PORT_DVX_SERIAL_1:SYS_MASTER

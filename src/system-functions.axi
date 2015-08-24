@@ -226,6 +226,21 @@ define_function nfcTagDetectedTablePanel (char nfcTag[])
 		unlockTablePanel (user)
 		debugPrint ("'nfcTagDetectedTablePanel  - #3'")
 	}
+	else if (nfcTag == userNFCTagIDPanelUpDown) //niek's tag panel up
+	{
+	  debugPrint ("'nfcTagDetectedTablePanel  - #ABC'")
+	  if (panelIsUp)
+	  {
+		debugPrint ("'nfcTagDetectedTablePanel  - #DEF'")
+		channelPulse (dvRelaysRelBox, REL_TP_DOWN)
+	  }
+	  else
+	  {
+		debugPrint ("'nfcTagDetectedTablePanel  - #GHI'")
+		channelPulse (dvRelaysRelBox, REL_TP_UP)
+	  }
+	  debugPrint ("'nfcTagDetectedTablePanel  - #JKL'")
+	}
 	else if (tablePanelInUse == false)	// am connected to RMS so just need to check that the table panel is not already being used
 	{
 	  debugPrint ("'nfcTagDetectedTablePanel  - #4'")
@@ -1121,6 +1136,7 @@ define_function shutdownAvSystem ()
 	OFF[dvTpTableVideo,BTN_ADR_DRAGGABLE_ENZO]
 	OFF[dvTpTableVideo,BTN_ADR_DRAGGABLE_SKYPE]
 	OFF[dvTpTableVideo,BTN_ADR_DRAGGABLE_VGA]
+	
 	//OFF[dvTpTableVideo,BTN_ADR_DRAGGABLE_AMXTV]
 	SEND_COMMAND dvTpTableVideo,"'^ANI-',ITOA(BTN_ADR_DROP_AREA_LCD),',1,1,0'"
 	SEND_COMMAND dvEnzo, "'APP.LAUNCH-MIRROROP'"
@@ -1131,6 +1147,10 @@ define_function shutdownAvSystem ()
 	amxRelayPulse (dvRelaysRelBox, REL_BLOCKOUTS_WALL_WINDOW_UP)
 	amxRelayPulse (dvRelaysRelBox, REL_SHADES_CORNER_WINDOW_UP)
 	amxRelayPulse (dvRelaysRelBox, REL_SHADES_WALL_WINDOW_UP)
+	
+	//kill app windows on TP
+	send_command dvTpTableMain,'^APP-Browser'
+	send_command dvTpTableMain, '^APP-FileBrowser'
 	
 	// cancel the meeting in RMS if there is one currently in session
 	if (rmsSchedule.bookingIdCurrentMeeting != '')
@@ -1145,6 +1165,10 @@ define_function shutdownAvSystem ()
 
 	// Lights - recall the "all on" preset
 	lightsSetLevelWithFade (cLightAddressBoardroom, 100, 1)
+	//lights off
+	amxRelayOff (dvRelaysDvx, REL_LIGHTS)
+	amxRelayPulse (dvRelaysRelBox, REL_TP_DOWN)
+	
 	
 	// End Enzo session
 	enzoSessionEnd (dvEnzo)
@@ -1446,6 +1470,8 @@ define_function meetingEnded()
 {
 	userShutdownSystemToEndMeeting = false
 	userInformedMeetingEndingSoon = false
+	send_command dvTpTableMain,'^APP-Browser'
+	send_command dvTpTableMain, '^APP-FileBrowser'
 	if (meetingInSession == true)
 	{
 		shutdownAvSystem ()
@@ -1461,10 +1487,14 @@ define_function meetingStarted()
 	showCurrentMeetingInfoOnTableSplashScreen ()
 	SEND_COMMAND dvEnzo, "'APP.LAUNCH-MIRROROP'"
 	
+	
 	if (meetingInSession == false)
 	{
 		meetingInSession = true
 		lightsSetLevelWithFade (cLightAddressBoardroom, 100, 1)
+		amxRelayOn (dvRelaysDvx, REL_LIGHTS)
+		amxRelayPulse (dvRelaysRelBox, REL_TP_UP)
+		
 		// show the "Welcome to the Boardroom" blanking image on both outputs
 		if (dvx.videoOutputs[dvDvxVidOutMonitorLeft.port].testPattern != DVX_TEST_PATTERN_LOGO_3)
 		{

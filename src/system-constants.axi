@@ -19,6 +19,9 @@ define_constant
  */
 
 
+//amex_NFC	=	8E61D803
+
+
 // Drag Items
 
 // Drop Items
@@ -360,6 +363,13 @@ integer BTN_OCCUPANCY_DETECTED  = 1
  * --------------------
  */
 
+//EXB REL8 Constants
+integer REL_TP_UP	=	2
+integer REL_TP_DOWN	=	1
+
+integer REL_LIGHTS	=	4
+
+
 // Relay Channel codes for Relay Box relays
 integer REL_BLOCKOUTS_CORNER_WINDOW_UP  = 1
 integer REL_BLOCKOUTS_CORNER_WINDOW_DN  = 2
@@ -532,6 +542,7 @@ char SOUND_FILE_NAME_CHIME[] = 'chime.wav'
  */
 
 char USER_NAME_MAINTENANCE[] = 'Maintenance'
+char USER_NAME_NIEK[]		 =	'Niek Groot'
 
 
 

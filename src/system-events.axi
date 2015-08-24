@@ -1132,13 +1132,13 @@ CUSTOM_EVENT[dvTpTableVideo,btnsDraggable,MODERO_CUSTOM_EVENT_ID_DRAG_STARTED]
 //When a draggable enters a droppable area (1411)
 CUSTOM_EVENT[dvTpTableVideo,btnsDropTargets,MODERO_CUSTOM_EVENT_ID_DROP_ENTER]
 {
-    SEND_COMMAND dvTpTableVideo,"'^ANI-',ITOA(custom.ID),',2,2,0'"
+    SEND_COMMAND dvTpTableVideo,"'^ANI-',ITOA(BTN_ADR_DROP_AREA_LCD),',3,3,0'"
 }
 
 //When a draggable Exits a drop area (1412)
 CUSTOM_EVENT[dvTpTableVideo,btnsDropTargets,MODERO_CUSTOM_EVENT_ID_DROP_EXIT]
 {
-   SEND_COMMAND dvTpTableVideo,"'^ANI-',ITOA(custom.ID),',1,1,0'"
+   SEND_COMMAND dvTpTableVideo,"'^ANI-',ITOA(custom.ID),',2,2,0'"
 }
 
 // Custom event on DROP draggble button on target (1413)
@@ -1146,7 +1146,10 @@ custom_event[dvTpTableVideo,BTN_ADR_DROP_AREA_LCD,MODERO_CUSTOM_EVENT_ID_DROP]
 custom_event[dvTpTableVideo,BTN_ADR_DROP_AREA_ENCODER,MODERO_CUSTOM_EVENT_ID_DROP]
 //custom_event[dvTpTableVideo,BTN_ADR_DROP_AREA_PREVIEW,MODERO_CUSTOM_EVENT_ID_DROP]
 {
-
+  
+  //clear drop target colour
+  SEND_COMMAND dvTpTableVideo,"'^ANI-',ITOA(BTN_ADR_DROP_AREA_LCD),',1,1,0'"
+  
   //Turn ON Source Button Address based on custom_event 1410
   ON[dvTpTableVideo,nDragAddress]
   
@@ -1259,7 +1262,8 @@ custom_event[dvTpTableVideo,BTN_ADR_DROP_AREA_ENCODER,MODERO_CUSTOM_EVENT_ID_DRO
 // Cancel Event (1414)
 CUSTOM_EVENT[dvTpTableVideo,btnsDraggable,MODERO_CUSTOM_EVENT_ID_DRAG_CANCEL]
 {
-    SEND_COMMAND dvTpTableVideo,"'^ANI-',ITOA(custom.ID),',1,1,0'"
+    SEND_COMMAND dvTpTableVideo,"'^ANI-',ITOA(BTN_ADR_DROP_AREA_LCD),',1,1,0'"
+	
 	OFF[dvTpTableVideo,custom.id]	//ensure button feedback does not activate on a cancel drop
 }
 
@@ -1276,6 +1280,22 @@ BUTTON_EVENT[dvTpTableVideo,BTN_ADR_CLEAR_SOURCES]
 	OFF[dvTpTableVideo,BTN_ADR_DRAGGABLE_AMXTV]
 	SEND_COMMAND dvTpTableVideo,"'^ANI-',ITOA(BTN_ADR_DROP_AREA_LCD),',1,1,0'"	//clear drop target feedback
 	sendSelectedInputToLeftMonitor (DVX_PORT_VID_IN_NONE, dvDvxVidOutLcd.port)	//route no input to output
+  }
+}
+
+CHANNEL_EVENT[dvRelaysRelBox, REL_TP_UP]
+{
+  ON:
+  {
+	panelIsUp = true
+  }
+}
+
+CHANNEL_EVENT[dvRelaysRelBox, REL_TP_DOWN]
+{
+  ON:
+  {
+	panelIsUp = false
   }
 }
 
