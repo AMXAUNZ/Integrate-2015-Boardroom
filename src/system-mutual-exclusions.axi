@@ -19,6 +19,9 @@ define_mutually_exclusive
 //draggable button exclusions
 ([dvTpTableVideo,19],[dvTpTableVideo,20],[dvTpTableVideo,17],[dvTpTableVideo,15], [dvTpTableVideo,118])
 
+//moving touchpanel relay channels
+([dvRelaysRelBox,REL_TP_UP],[dvRelaysRelBox,REL_TP_DOWN])
+
 // DXLink Rx Aspect Ratio Mode Buttons
 (
 	[dvTpTableDxlink, BTN_DXLINK_RX_ASPECT_ANAMORPHIC_MONITOR_LEFT],

@@ -21,6 +21,8 @@ PROGRAM_NAME='system-variables'
 
 define_variable
 
+persistent char userNFCTagIDPanelUpDown [50] 	=	'045D123A853284' 
+persistent integer panelIsUp = false
 
 /*
  * --------------------
