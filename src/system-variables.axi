@@ -21,8 +21,11 @@ PROGRAM_NAME='system-variables'
 
 define_variable
 
-persistent char userNFCTagIDPanelUpDown [50] 	=	'045D123A853284' 
+persistent char userNFCTagIDPanelUpDown [50] 	=	'7C54C580' 
 persistent integer panelIsUp = false
+
+//Line      5 (09:33:41):: Custom Event [10001:1:1]-ID=1 Type=700 Flag=0 Value1=2 Value2=0 Value3=4 Text: 7C54C580 
+
 
 /*
  * --------------------

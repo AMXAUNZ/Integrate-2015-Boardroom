@@ -38,4 +38,5 @@
 045EFB3A853280,Maintenance,maintenance@amxaustralia.com.au,no-photo.jpg 
 0474FE3A853280,Maintenance,maintenance@amxaustralia.com.au,no-photo.jpg
 04710D3A853284,Maintenance,maintenance@amxaustralia.com.au,no-photo.jpg
+7C54C580,Touch Panel,maintenance@amxaustralia,no-photo.jpg
 
